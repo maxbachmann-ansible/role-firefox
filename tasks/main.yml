@@ -19,7 +19,7 @@
 # UBlock Origin
 - name: download ublock origin
   get_url: 
-    url="{{ addon_download }}/1166954/ublock_origin-1.17.4-an+fx.xpi?src=dp-btn-primary"
+    url="{{ addon_download }}/1166954/ublock_origin-1.17.4-an+fx.xpi"
     dest="{{ profile_path }}/extensions/uBlock0@raymondhill.net.xpi"
 
 - name: create config folder UBlock Origin
@@ -36,7 +36,7 @@
 # UMatrix
 - name: download uMatrix
   get_url: 
-    url="{{ addon_download }}/1057194/umatrix-1.3.14-an+fx.xpi?src=dp-btn-primary"
+    url="{{ addon_download }}/1057194/umatrix-1.3.14-an+fx.xpi"
     dest="{{ profile_path }}/extensions/uMatrix@raymondhill.net.xpi"
 
 - name: create config folder UMatrix
@@ -53,7 +53,7 @@
 # Decentraleyes
 - name: download Decentraleyes
   get_url: 
-    url="{{ addon_download }}/1078499/decentraleyes-2.0.8-an+fx.xpi?src=dp-btn-primary"
+    url="{{ addon_download }}/1078499/decentraleyes-2.0.8-an+fx.xpi"
     dest="{{ profile_path }}/extensions/jid1-BoFifL9Vbdl2zQ@jetpack.xpi"
 
 - name: create config folder decentraleyes
@@ -70,25 +70,25 @@
 # First Party Isolation
 - name: download First Party Isolation
   get_url: 
-    url="{{ addon_download }}/792833/first_party_isolation-1.3.1-an+fx.xpi?src=dp-btn-primary"
+    url="{{ addon_download }}/792833/first_party_isolation-1.3.1-an+fx.xpi"
     dest="{{ profile_path }}/extensions/{33c93ccc-ceed-47d2-9645-805ea58c8a07}.xpi"
 
 # Neat URL
 - name: download Neat URL
   get_url: 
-    url="{{ addon_download }}/970953/neat_url-4.1.5-an+fx.xpi?src=dp-btn-primary"
+    url="{{ addon_download }}/970953/neat_url-4.1.5-an+fx.xpi"
     dest="{{ profile_path }}/extensions/neaturl@hugsmile.eu.xpi"
 
 # Skip Redirect
 - name: download Skip Redirect
   get_url: 
-    url="{{ addon_download }}/727843/skip_redirect-2.2.1-fx.xpi?src=dp-btn-primary"
+    url="{{ addon_download }}/727843/skip_redirect-2.2.1-fx.xpi"
     dest="{{ profile_path }}/extensions/skipredirect@sblask.xpi"
 
 # Temporary Containers
 - name: download Temporary Containers
   get_url: 
-    url="{{ addon_download }}/957989/temporary_containers-0.90-an+fx-linux.xpi?src=dp-btn-primary"
+    url="{{ addon_download }}/957989/temporary_containers-0.90-an+fx-linux.xpi"
     dest="{{ profile_path }}/extensions/{c607c8df-14a7-4f28-894f-29e8722976af}.xpi"
 
 - name: create config folder temporary containers
@@ -105,7 +105,7 @@
 # Firefox Multi-Account Containers
 - name: download Firefox Multi-Account Containers
   get_url: 
-    url="{{ addon_download }}/1171317/firefox_multi_account_containers-6.0.1-fx.xpi?src=dp-btn-primary"
+    url="{{ addon_download }}/1171317/firefox_multi_account_containers-6.0.1-fx.xpi"
     dest="{{ profile_path }}/extensions/@testpilot-containers.xpi"
 
 #add user.js
