@@ -1,0 +1,29 @@
+<!DOCTYPE NETSCAPE-Bookmark-file-1>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+<TITLE>Bookmarks</TITLE>
+<H1>Bookmarks Menu</H1>
+
+<DL><p>
+    <HR>    <DT><H3 ADD_DATE="{{ansible_date_time.epoch}}" LAST_MODIFIED="{{ansible_date_time.epoch}}" UNFILED_BOOKMARKS_FOLDER="true">Other Bookmarks</H3>
+    <DL><p>
+        <DT><H3 ADD_DATE="{{ansible_date_time.epoch}}" LAST_MODIFIED="{{ansible_date_time.epoch}}">SearchEngines</H3>
+        <DL><p>
+{% for searchmachine in search_engines %}
+            <DT><A HREF="{{ searchmachine.HREF }}"
+            ADD_DATE="{{ansible_date_time.epoch}}" 
+            LAST_MODIFIED="{{ansible_date_time.epoch}}"
+{% if 'ICON_URI' in searchmachine %}
+            ICON_URI="{{ searchmachine.ICON_URI }}"
+{% endif %}
+{% if 'ICON' in searchmachine %}
+            ICON="{{ searchmachine.ICON }}"
+{% endif %}
+            SHORTCUTURL="{{ searchmachine.SHORTCUTURL }}"
+{% if 'POST_DATA' in searchmachine %}
+            POST_DATA="{{ searchmachine.POST_DATA }}"
+{% endif %}
+            >{{ searchmachine.NAME }}</A>
+{% endfor %}
+        </DL><p>
+    </DL><p>
+</DL>

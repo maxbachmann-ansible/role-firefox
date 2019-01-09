@@ -1,10 +1,8 @@
----
-
 - name: Install packages needed for firefox
   become: yes
   package:
-    name = {{ item }}
-    state = present
+    name: "{{ item }}"
+    state: present
   with_items:
     - firefox
     - libselinux-python
@@ -115,22 +113,34 @@
     dest: "{{ profile_path }}/updater.sh"
     mode: 0770
 
-- name: Apply changes of user-overrides to user.js
-  command: '"{{ profile_path }}/updater.sh" -u -s'
-
-- name: Check that "{{ profile_path }}/user-overrides.js" exists
-  stat:
-    path: "{{ profile_path }}/user-overrides.js"
-  register: stat_result
-
-- name: Copy user.js to user-overrides.js if it does not exist
+- name: copy user-overrides.js
   copy:
-    remote_src: True
-    src: "{{ profile_path }}/user.js"
+    src: files/user-overrides.js
     dest: "{{ profile_path }}/user-overrides.js"
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
     mode: 0644
-  when: stat_result.stat.exists == False 
 
+- name: Apply changes of user-overrides to user.js
+  command: '"{{ profile_path }}/updater.sh" -u -s'
 
+#add search engines
+- name: add search engines
+  template:
+    src: templates/bookmarks.j2
+    dest: "{{ profile_path }}/bookmarks.html"
+
+- name: remove places.sqlite
+  file:
+    path: "{{ profile_path }}/places.sqlite"
+    state: absent
+
+- name: remove backup folder of places.sqlite
+  file:
+    path: "{{ profile_path }}/bookmarkbackups"
+    state: absent
+
+- name: add backup directory again
+  file:
+    path: "{{ profile_path }}/bookmarkbackups"
+    state: directory
