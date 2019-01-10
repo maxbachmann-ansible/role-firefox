@@ -1,0 +1,20 @@
+#add search engines
+- name: add search engines
+  template:
+    src: templates/bookmarks.j2
+    dest: "{{ profile_path }}/bookmarks.html"
+
+- name: remove places.sqlite
+  file:
+    path: "{{ profile_path }}/places.sqlite"
+    state: absent
+
+- name: remove backup folder of places.sqlite
+  file:
+    path: "{{ profile_path }}/bookmarkbackups"
+    state: absent
+
+- name: add backup directory again
+  file:
+    path: "{{ profile_path }}/bookmarkbackups"
+    state: directory
