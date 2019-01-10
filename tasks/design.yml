@@ -5,8 +5,8 @@
 
 - name: add background image
   copy:
-    src: files/chrome/background.png
-    dest: "{{ profile_path }}/chrome/background.png"
+    src: files/chrome/firefox.png
+    dest: "{{ profile_path }}/chrome/firefox.png"
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
     mode: 0644

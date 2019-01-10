@@ -1,0 +1,12 @@
+- name: add firefox esr repo ubuntu
+  become: yes
+  apt_repository:
+    repo: ppa:mozillateam/ppa
+  when: ansible_distribution == 'Ubuntu'
+
+- name: install firefox esr ubuntu or debian
+  become: yes
+  apt:
+    name: firefox-esr
+    state: present
+  when:  ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'

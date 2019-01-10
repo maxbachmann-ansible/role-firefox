@@ -29,6 +29,8 @@ user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
 user_pref("browser.newtabpage.activity-stream.feeds.snippets", false);
 user_pref("browser.newtabpage.activity-stream.feeds.highlights", false);
 user_pref("browser.newtabpage.activity-stream.feeds.topstories", false);
+user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
+user_pref("browser.newtabpage.activity-stream.feeds.newtabinit", false);
 
 //remove search bar from toolbar
 user_pref("browser.search.widget.inNavBar", false);

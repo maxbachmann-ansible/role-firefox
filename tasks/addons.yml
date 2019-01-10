@@ -1,3 +1,15 @@
+# make sure mozilla directory exists
+- name: create directory "{{ mozilla_path }}/firefox"
+  file: state=directory path="{{ mozilla_path }}/firefox"
+
+- name: copy profiles.ini
+  copy:
+    src: files/profiles.ini
+    dest: "{{ mozilla_path }}/firefox/profiles.ini"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    mode: 0644
+
 # make sure directories for the addons exist
 - name: create project directory "{{ profile_path }}/extensions"
   file: state=directory path="{{ profile_path }}/extensions"
