@@ -1,6 +1,6 @@
-#add user.js
+---
 - name: download update script for user.js
-  get_url: 
+  get_url:
     url: "https://raw.githubusercontent.com/ghacksuserjs/ghacks-user.js/master/updater.sh"
     dest: "{{ profile_path }}/updater.sh"
     mode: 0770
@@ -16,7 +16,6 @@
 - name: Apply changes of user-overrides to user.js
   command: '"{{ profile_path }}/updater.sh" -u -s'
 
-  #remove unrequired handlers
 - name: remove unrequired handlers from handlers.json
   copy:
     src: files/handlers.json

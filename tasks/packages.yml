@@ -1,14 +1,14 @@
-# package install
+---
 - name: Install packages needed for firefox
-  become: yes
+  become: true
   package:
     name: libselinux-python
     state: present
 
 - name: Install pulseaudio for sound output on arch linux
-  become: yes
+  become: true
   pacman:
     name: pulseaudio
     state: latest
-    update_cache: yes
+    update_cache: true
   when: ansible_distribution == 'Archlinux'
