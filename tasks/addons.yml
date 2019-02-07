@@ -1,11 +1,13 @@
 ---
-- name: create directory "{{ mozilla_path }}/firefox"
-  file: state=directory path="{{ mozilla_path }}/firefox"
+- name: create directory "{{ firefox_path }}"
+  file: 
+    state: directory
+    path: "{{ firefox_path }}"
 
 - name: copy profiles.ini
   copy:
     src: files/profiles.ini
-    dest: "{{ mozilla_path }}/firefox/profiles.ini"
+    dest: "{{ firefox_path }}/profiles.ini"
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
     mode: 0644
