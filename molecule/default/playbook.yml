@@ -13,4 +13,4 @@
       changed_when: false
 
   roles:
-    - role: role-firefox
+    - role: ansible-firefox
