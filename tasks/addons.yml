@@ -1,6 +1,6 @@
 ---
 - name: create directory "{{ firefox_path }}"
-  file: 
+  file:
     state: directory
     path: "{{ firefox_path }}"
 
