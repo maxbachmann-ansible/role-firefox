@@ -1,8 +1,28 @@
 ---
+- name: Ansible check file exists example.
+  stat:
+    path: "{{ firefox_path }}"
+  register: file_details
+
+- name: test
+  debug:
+    msg: "The file or directory exists"
+  when: file_details.stat.exists
+
 - name: create directory "{{ firefox_path }}"
   file:
     state: directory
     path: "{{ firefox_path }}"
+
+- name: Ansible check file exists example.
+  stat:
+    path: "{{ firefox_path }}"
+  register: file_details1
+
+- name: test
+  debug:
+    msg: "The file or directory exists"
+  when: file_details1.stat.exists
 
 - name: copy profiles.ini
   copy:
@@ -11,6 +31,16 @@
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
     mode: 0644
+
+- name: Ansible check file exists example.
+  stat:
+    path: "{{ firefox_path }}/profiles.ini"
+  register: file_details2
+
+- name: test
+  debug:
+    msg: "The file or directory exists"
+  when: file_details2.stat.exists
 
 # make sure directories for the addons exist
 - name: create project directory "{{ profile_path }}/extensions"
