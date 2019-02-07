@@ -5,7 +5,7 @@
 
   vars:
     molecule_test: true
-    search_engines: 
+    search_engines:
       - startpage
       - duckduckgo
       - qwant
