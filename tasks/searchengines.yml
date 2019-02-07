@@ -1,4 +1,4 @@
-#add search engines
+---
 - name: add search engines
   template:
     src: templates/bookmarks.j2

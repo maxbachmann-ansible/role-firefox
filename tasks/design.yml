@@ -1,3 +1,4 @@
+---
 - name: add chrome folder
   file:
     path: "{{ profile_path }}/chrome"

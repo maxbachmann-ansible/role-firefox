@@ -1,19 +1,4 @@
-
-- pause:
-    prompt: "Do you want to install firefox-esr instead of the default firefox? (yes/no)?"
-  register: firefox_release
-
-- name: Install firefox default
-  become: yes
-  package:
-    name: firefox
-    state: present
-  when: firefox_release.user_input | bool == false
-
-- name: Install firefox esr release
-  import_tasks: firefox_esr.yml
-  when: firefox_release.user_input | bool
-
+---
 - name: add packages
   import_tasks: packages.yml
 
@@ -27,4 +12,4 @@
   import_tasks: searchengines.yml
 
 - name: add desgin.yml
-  import_tasks: searchengines.yml
+  import_tasks: design.yml

@@ -1,14 +1,35 @@
-# package install
+---
+- name: add firefox esr repo ubuntu
+  become: true
+  apt_repository:
+    repo: ppa:mozillateam/ppa
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Install firefox
+  become: true
+  package:
+    name: firefox-esr
+    state: present
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: Install firefox
+  become: true
+  package:
+    name: firefox
+    state: present
+  when: ansible_distribution == 'Fedora' or ansible_distribution == 'RedHat'
+
 - name: Install packages needed for firefox
-  become: yes
+  become: true
   package:
     name: libselinux-python
     state: present
+  when: ansible_distribution == 'Fedora' or ansible_distribution == 'RedHat'
 
 - name: Install pulseaudio for sound output on arch linux
-  become: yes
+  become: true
   pacman:
     name: pulseaudio
     state: latest
-    update_cache: yes
+    update_cache: true
   when: ansible_distribution == 'Archlinux'
