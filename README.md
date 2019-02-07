@@ -9,4 +9,4 @@ Ansible Playbook to install firefox, the firefox addons mentioned in [Firefox Ko
 | q:      | https://lite.qwant.com/?l=de&amp;q=%s&amp;t=web |
 | yt:     | https://invidio.us/search?q=%s                  |
 
-After running the role the addons are in firefox, but need to be enabled on the first start of firefox 
+After running the role the addons are in firefox, but need to be enabled on the first start of firefox  
