@@ -4,6 +4,7 @@
   package:
     name: libselinux-python
     state: present
+  when: ansible_distribution == 'Fedora' or ansible_distribution == 'RedHat'
 
 - name: Install pulseaudio for sound output on arch linux
   become: true
