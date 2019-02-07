@@ -1,4 +1,10 @@
 ---
+- name: add firefox esr repo ubuntu
+  become: true
+  apt_repository:
+    repo: ppa:mozillateam/ppa
+  when: ansible_distribution == 'Ubuntu'
+
 - name: Install firefox
   become: true
   package:
@@ -12,10 +18,6 @@
     name: firefox
     state: present
   when: ansible_distribution == 'Fedora' or ansible_distribution == 'RedHat'
-
-- name: Install firefox esr release
-  import_tasks: firefox_esr.yml
-  when: firefox_release.user_input | bool
 
 - name: add packages
   import_tasks: packages.yml
@@ -31,4 +33,3 @@
 
 - name: add desgin.yml
   import_tasks: searchengines.yml
-# d
