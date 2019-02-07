@@ -8,7 +8,7 @@
 - name: Install firefox default
   become: true
   package:
-    name: firefox
+    name: firefox-esr
     state: present
   when: firefox_release.user_input | bool == false
 
