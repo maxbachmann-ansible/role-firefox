@@ -32,15 +32,9 @@
     group: "{{ ansible_user_id }}"
     mode: 0644
 
-- name: Ansible check file exists example.
-  stat:
-    path: "{{ firefox_path }}/profiles.ini"
-  register: file_details2
-
 - name: test
   debug:
-    msg: "The file or directory exists"
-  when: file_details2.stat.exists
+    msg: "{{ lookup('file', '{{ ~/.mozilla/firefox/profiles.ini}}"
 
 # make sure directories for the addons exist
 - name: create project directory "{{ profile_path }}/extensions"
