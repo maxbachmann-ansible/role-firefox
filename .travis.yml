@@ -4,7 +4,7 @@ services: docker
 
 env:
   global:
-    - ROLE_NAME: apache
+    - ROLE_NAME: role-firefox
   matrix:
     - MOLECULE_DISTRO: centos7
     - MOLECULE_DISTRO: centos6
@@ -13,6 +13,8 @@ env:
     - MOLECULE_DISTRO: ubuntu1404
     - MOLECULE_DISTRO: debian9
     - MOLECULE_DISTRO: debian8
+    - MOLECULE_DISTRO: fedora29
+    - MOLECULE_DISTRO: fedora27
 
 install:
   # Install test dependencies.
