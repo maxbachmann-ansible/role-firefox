@@ -1,0 +1,21 @@
+---
+language: python
+services: docker
+
+env:
+  global:
+    - ROLE_NAME: apache
+  matrix:
+    - MOLECULE_DISTRO: debian9
+    - MOLECULE_DISTRO: debian8
+
+install:
+  # Install test dependencies.
+  - pip install molecule docker
+
+before_script:
+
+
+script:
+  # Run tests.
+  - molecule test
