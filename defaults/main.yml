@@ -28,7 +28,7 @@ search_engines:
     NAME: searx
     HREF: https://suche.honigdachse.de/
     ICON_URI: https://suche.honigdachse.de/static/themes/honigdachse/img/favicon.png
-    ICON: "{{lookup('file', '/icons/searx_icon') }}"
+    ICON: "{{lookup('file', 'icons/searx_icon') }}"
     SHORTCUTURL: "sx:"
     POST_DATA: q%3D%25s&amp;category_general%3Don&amp;time_range%3D&amp;language%3Dde-DE
 
