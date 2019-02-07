@@ -10,20 +10,20 @@
         <DL><p>
 {% if search_engines is defined %}
 {% for searchmachine in search_engines %}
-            <DT><A HREF="{{ search_engine_list[searchmachine].HREF }}"
+            <DT><A HREF="{{ search_engine_list.{{searchmachine}}.HREF }}"
             ADD_DATE="{{ansible_date_time.epoch}}" 
             LAST_MODIFIED="{{ansible_date_time.epoch}}"
-{% if 'ICON_URI' in searchmachine %}
-            ICON_URI="{{ search_engine_list[searchmachine].ICON_URI }}"
+{% if 'ICON_URI' in search_engine_list.{{searchmachine}} %}
+            ICON_URI="{{ search_engine_list.{{searchmachine}}.ICON_URI }}"
 {% endif %}
-{% if 'ICON' in searchmachine %}
-            ICON="{{ search_engine_list[searchmachine].ICON }}"
+{% if 'ICON' in search_engine_list.{{searchmachine}} %}
+            ICON="{{ search_engine_list.{{searchmachine}}.ICON }}"
 {% endif %}
-            SHORTCUTURL="{{ search_engine_list[searchmachine].SHORTCUTURL }}"
-{% if 'POST_DATA' in searchmachine %}
-            POST_DATA="{{ search_engine_list[searchmachine].POST_DATA }}"
+            SHORTCUTURL="{{ search_engine_list.{{searchmachine}}.SHORTCUTURL }}"
+{% if 'POST_DATA' in search_engine_list.{{searchmachine}} %}
+            POST_DATA="{{ search_engine_list.{{searchmachine}}.POST_DATA }}"
 {% endif %}
-            >{{ search_engine_list[searchmachine].NAME }}</A>
+            >{{ search_engine_list.{{searchmachine}}.NAME }}</A>
 {% endfor %}
 {% endif %}
         </DL><p>
