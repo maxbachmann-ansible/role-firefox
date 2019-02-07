@@ -1,53 +1,33 @@
 ---
-- name: Ansible check file exists example.
-  stat:
-    path: "~/.mozilla"
-  register: file_details
-
-- name: test
-  debug:
-    msg: "The file or directory exists"
-  when: file_details.stat.exists
-
 - name: create directory "{{ firefox_path }}"
   file:
     state: directory
     path: "{{ firefox_path }}"
 
-- name: Ansible check file exists example.
-  stat:
-    path: "{{ firefox_path }}"
-  register: file_details1
-
-- name: test
-  debug:
-    msg: "The file or directory exists"
-  when: file_details1.stat.exists
-
 - name: copy profiles.ini
-  copy:
-    src: files/profiles.ini
+  template:
+    src: templates/profiles.ini.j2
     dest: "{{ firefox_path }}/profiles.ini"
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
     mode: 0644
 
-- name: test
-  debug:
-    msg: "{{ lookup('file', '~/.mozilla/firefox/profiles.ini') }}"
-
 # make sure directories for the addons exist
 - name: create project directory "{{ profile_path }}/extensions"
-  file: state=directory path="{{ profile_path }}/extensions"
+  file:
+    state: directory
+    path: "{{ profile_path }}/extensions"
 
 - name: create project directory {{ profile_path }}/browser-extension-data
-  file: state=directory path="{{ profile_path }}/browser-extension-data"
+  file:
+    state: directory
+    path: "{{ profile_path }}/browser-extension-data"
 
 # UBlock Origin
 - name: download ublock origin
   get_url:
-    url="{{ addon_download }}/1166954/ublock_origin-1.17.4-an+fx.xpi"
-    dest="{{ profile_path }}/extensions/uBlock0@raymondhill.net.xpi"
+    url: "{{ addon_download }}/1166954/ublock_origin-1.17.4-an+fx.xpi"
+    dest: "{{ profile_path }}/extensions/uBlock0@raymondhill.net.xpi"
 
 - name: create config folder UBlock Origin
   file: state=directory path="{{ profile_path }}/browser-extension-data/uBlock0@raymondhill.net"
@@ -63,11 +43,13 @@
 # UMatrix
 - name: download uMatrix
   get_url:
-    url="{{ addon_download }}/1057194/umatrix-1.3.14-an+fx.xpi"
-    dest="{{ profile_path }}/extensions/uMatrix@raymondhill.net.xpi"
+    url: "{{ addon_download }}/1057194/umatrix-1.3.14-an+fx.xpi"
+    dest: "{{ profile_path }}/extensions/uMatrix@raymondhill.net.xpi"
 
 - name: create config folder UMatrix
-  file: state=directory path="{{ profile_path }}/browser-extension-data/uMatrix@raymondhill.net"
+  file:
+    state: directory
+    path: "{{ profile_path }}/browser-extension-data/uMatrix@raymondhill.net"
 
 - name: copy UMatrix config
   copy:
@@ -80,11 +62,13 @@
 # Decentraleyes
 - name: download Decentraleyes
   get_url:
-    url="{{ addon_download }}/1078499/decentraleyes-2.0.8-an+fx.xpi"
-    dest="{{ profile_path }}/extensions/jid1-BoFifL9Vbdl2zQ@jetpack.xpi"
+    url: "{{ addon_download }}/1078499/decentraleyes-2.0.8-an+fx.xpi"
+    dest: "{{ profile_path }}/extensions/jid1-BoFifL9Vbdl2zQ@jetpack.xpi"
 
 - name: create config folder decentraleyes
-  file: state=directory path="{{ profile_path }}/browser-extension-data/jid1-BoFifL9Vbdl2zQ@jetpack"
+  file:
+    state: directory
+    path: "{{ profile_path }}/browser-extension-data/jid1-BoFifL9Vbdl2zQ@jetpack"
 
 - name: copy dencetraleyes config
   copy:
@@ -97,29 +81,31 @@
 # First Party Isolation
 - name: download First Party Isolation
   get_url:
-    url="{{ addon_download }}/792833/first_party_isolation-1.3.1-an+fx.xpi"
-    dest="{{ profile_path }}/extensions/{33c93ccc-ceed-47d2-9645-805ea58c8a07}.xpi"
+    url: "{{ addon_download }}/792833/first_party_isolation-1.3.1-an+fx.xpi"
+    dest: "{{ profile_path }}/extensions/{33c93ccc-ceed-47d2-9645-805ea58c8a07}.xpi"
 
 # Neat URL
 - name: download Neat URL
   get_url:
-    url="{{ addon_download }}/970953/neat_url-4.1.5-an+fx.xpi"
-    dest="{{ profile_path }}/extensions/neaturl@hugsmile.eu.xpi"
+    url: "{{ addon_download }}/970953/neat_url-4.1.5-an+fx.xpi"
+    dest: "{{ profile_path }}/extensions/neaturl@hugsmile.eu.xpi"
 
 # Skip Redirect
 - name: download Skip Redirect
   get_url:
-    url="{{ addon_download }}/727843/skip_redirect-2.2.1-fx.xpi"
-    dest="{{ profile_path }}/extensions/skipredirect@sblask.xpi"
+    url: "{{ addon_download }}/727843/skip_redirect-2.2.1-fx.xpi"
+    dest: "{{ profile_path }}/extensions/skipredirect@sblask.xpi"
 
 # Temporary Containers
 - name: download Temporary Containers
   get_url:
-    url="{{ addon_download }}/957989/temporary_containers-0.90-an+fx-linux.xpi"
-    dest="{{ profile_path }}/extensions/{c607c8df-14a7-4f28-894f-29e8722976af}.xpi"
+    url: "{{ addon_download }}/957989/temporary_containers-0.90-an+fx-linux.xpi"
+    dest: "{{ profile_path }}/extensions/{c607c8df-14a7-4f28-894f-29e8722976af}.xpi"
 
 - name: create config folder temporary containers
-  file: state=directory path="{{ profile_path }}/browser-extension-data/{c607c8df-14a7-4f28-894f-29e8722976af}"
+  file:
+    state: directory
+    path: "{{ profile_path }}/browser-extension-data/{c607c8df-14a7-4f28-894f-29e8722976af}"
 
 - name: copy temporary containers config
   copy:
@@ -132,5 +118,5 @@
 # Firefox Multi-Account Containers
 - name: download Firefox Multi-Account Containers
   get_url:
-    url="{{ addon_download }}/1171317/firefox_multi_account_containers-6.0.1-fx.xpi"
-    dest="{{ profile_path }}/extensions/@testpilot-containers.xpi"
+    url: "{{ addon_download }}/1171317/firefox_multi_account_containers-6.0.1-fx.xpi"
+    dest: "{{ profile_path }}/extensions/@testpilot-containers.xpi"
