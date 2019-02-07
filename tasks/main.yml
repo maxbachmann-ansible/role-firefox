@@ -1,5 +1,6 @@
 ---
-- pause:
+- name: Install extended release or normal version
+  pause:
     prompt: "Do you want to install firefox-esr instead of the default firefox? (yes/no)?"
   register: firefox_release
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
