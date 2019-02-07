@@ -34,7 +34,7 @@
 
 - name: test
   debug:
-    msg: "{{ lookup('file', '~/.mozilla/firefox/profiles.ini')"
+    msg: "{{ lookup('file', '~/.mozilla/firefox/profiles.ini') }}"
 
 # make sure directories for the addons exist
 - name: create project directory "{{ profile_path }}/extensions"
