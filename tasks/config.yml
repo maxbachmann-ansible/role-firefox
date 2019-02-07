@@ -12,9 +12,7 @@
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
     mode: 0644
-
-- name: Apply changes of user-overrides to user.js
-  command: '"{{ profile_path }}/updater.sh" -u -s'
+  notify: update config
 
 - name: remove unrequired handlers from handlers.json
   copy:
