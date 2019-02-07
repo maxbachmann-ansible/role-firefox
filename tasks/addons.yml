@@ -1,7 +1,7 @@
 ---
 - name: Ansible check file exists example.
   stat:
-    path: "{{ firefox_path }}"
+    path: "~/.mozilla"
   register: file_details
 
 - name: test
