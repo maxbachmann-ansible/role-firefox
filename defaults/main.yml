@@ -1,5 +1,5 @@
 ---
-firefox_path: "~/.mozilla/firefox"
+firefox_path: "/home/{{ ansible_user_id }}/.mozilla/firefox"
 addon_download: "https://addons.mozilla.org/firefox/downloads/file"
 profile_lookup: "{{ lookup('ini', 'Path section=Profile0 file={{ firefox_path }}/profiles.ini') }}"
 profile_path: "{{ firefox_path }}/{{ profile_lookup }}"
