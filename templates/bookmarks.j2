@@ -8,22 +8,24 @@
     <DL><p>
         <DT><H3 ADD_DATE="{{ansible_date_time.epoch}}" LAST_MODIFIED="{{ansible_date_time.epoch}}">SearchEngines</H3>
         <DL><p>
+{% if search_engines is defined %}
 {% for searchmachine in search_engines %}
-            <DT><A HREF="{{ searchmachine.HREF }}"
+            <DT><A HREF="{{ search_engine_list.searchmachine.HREF }}"
             ADD_DATE="{{ansible_date_time.epoch}}" 
             LAST_MODIFIED="{{ansible_date_time.epoch}}"
 {% if 'ICON_URI' in searchmachine %}
-            ICON_URI="{{ searchmachine.ICON_URI }}"
+            ICON_URI="{{ search_engine_list.searchmachine.ICON_URI }}"
 {% endif %}
 {% if 'ICON' in searchmachine %}
-            ICON="{{ searchmachine.ICON }}"
+            ICON="{{ search_engine_list.searchmachine.ICON }}"
 {% endif %}
-            SHORTCUTURL="{{ searchmachine.SHORTCUTURL }}"
+            SHORTCUTURL="{{ search_engine_list.searchmachine.SHORTCUTURL }}"
 {% if 'POST_DATA' in searchmachine %}
-            POST_DATA="{{ searchmachine.POST_DATA }}"
+            POST_DATA="{{ search_engine_list.searchmachine.POST_DATA }}"
 {% endif %}
-            >{{ searchmachine.NAME }}</A>
+            >{{ search_engine_list.searchmachine.NAME }}</A>
 {% endfor %}
+{% endif %}
         </DL><p>
     </DL><p>
 </DL>

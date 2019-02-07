@@ -4,14 +4,14 @@ addon_download: "https://addons.mozilla.org/firefox/downloads/file"
 profile_name: "ansibleProfile.default"
 profile_path: "{{ firefox_path }}/{{ profile_name }}"
 
-search_engines:
+search_engines_list:
   - startpage:
     NAME: startpage websearch
     HREF: https://www.startpage.com/do/search
     ICON_URI: https://www.startpage.com/assets/images/logo-180x180.png?v=48842639
-    ICON: "{{lookup('file', 'startpage_icon')}}"
+    ICON: "{{lookup('file', 'searchmachines/startpage_icon')}}"
     SHORTCUTURL: "s:"
-    POST_DATA: "{{lookup('file', 'startpage_postdata')}}"
+    POST_DATA: "{{lookup('file', 'searchmachines/startpage_postdata')}}"
 
   - duckduckgo:
     NAME: Search DuckDuckGo — Privacy, simplified.
@@ -28,7 +28,7 @@ search_engines:
     NAME: searx
     HREF: https://suche.honigdachse.de/
     ICON_URI: https://suche.honigdachse.de/static/themes/honigdachse/img/favicon.png
-    ICON: "{{lookup('file', 'searx_icon')}}"
+    ICON: "{{lookup('file', 'searchmachines/searx_icon')}}"
     SHORTCUTURL: "sx:"
     POST_DATA: q%3D%25s&amp;category_general%3Don&amp;time_range%3D&amp;language%3Dde-DE
 

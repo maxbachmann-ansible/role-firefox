@@ -5,6 +5,12 @@
 
   vars:
     molecule_test: true
+    search_engines: 
+      - startpage
+      - duckduckgo
+      - qwant
+      - searx
+      - invidious
 
   pre_tasks:
     - name: Update apt cache.
