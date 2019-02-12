@@ -1,0 +1,15 @@
+---
+- name: add packages
+  import_tasks: packages.yml
+
+- name: add addons
+  import_tasks: addons.yml
+
+- name: add about:config
+  import_tasks: config.yml
+
+- name: add searchengines
+  import_tasks: searchengines.yml
+
+- name: add desgin.yml
+  import_tasks: design.yml

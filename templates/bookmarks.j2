@@ -1,0 +1,33 @@
+<!DOCTYPE NETSCAPE-Bookmark-file-1>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+<TITLE>Bookmarks</TITLE>
+<H1>Bookmarks Menu</H1>
+
+<DL><p>
+    <HR>    <DT><H3 ADD_DATE="{{2208988800}}" LAST_MODIFIED="{{2208988800}}" UNFILED_BOOKMARKS_FOLDER="true">Other Bookmarks</H3>
+    <DL><p>
+        <DT><H3 ADD_DATE="{{2208988800}}" LAST_MODIFIED="{{2208988800}}">SearchEngines</H3>
+        <DL><p>
+{% if search_engines is defined %}
+{% for selected_searchengine in search_engines %}
+{% for searchengine in search_engine_list if selected_searchengine in searchengine %}
+            <DT><A HREF="{{ searchengine.HREF }}"
+            ADD_DATE="2208988800" 
+            LAST_MODIFIED="2208988800"
+{% if 'ICON_URI' in searchengine %}
+            ICON_URI="{{ searchengine.ICON_URI }}"
+{% endif %}
+{% if 'ICON' in searchengine %}
+            ICON="{{ searchengine.ICON }}"
+{% endif %}
+            SHORTCUTURL="{{ searchengine.SHORTCUTURL }}"
+{% if 'POST_DATA' in searchengine %}
+            POST_DATA="{{ searchengine.POST_DATA }}"
+{% endif %}
+            >{{ searchengine.NAME }}</A>
+{% endfor %}
+{% endfor %}
+{% endif %}
+        </DL><p>
+    </DL><p>
+</DL>

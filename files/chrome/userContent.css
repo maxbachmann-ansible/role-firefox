@@ -1,0 +1,46 @@
+/* Firefox userContent.css */
+
+@-moz-document url-prefix("about:blank"), url-prefix("about:home"), url-prefix("about:newtab") {
+  body {
+    background-color: darkgray !important;
+    background-image: url("firefox.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+    background-size: auto 30% !important;
+  }
+}
+
+@font-face {
+  font-family: "Font Awesome 5 Brands";
+  src: local("Font Awesome 5 Brands Regular");
+}
+
+@font-face {
+  font-family: "Font Awesome 5 Free";
+  src: local("Font Awesome 5 Free Regular");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Font Awesome 5 Free";
+  src: local("Font Awesome 5 Free Solid");
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "FontAwesome";
+  src: local("fontawesome");
+}
+
+@font-face {
+  font-family: "Font Awesome 5 Pro";
+  src: local("Font Awesome 5 Free Regular");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Font Awesome 5 Pro";
+  src: local("Font Awesome 5 Free Solid");
+  font-weight: 900;
+}

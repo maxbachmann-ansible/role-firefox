@@ -1,0 +1,23 @@
+---
+- name: download update script for user.js
+  get_url:
+    url: "https://raw.githubusercontent.com/ghacksuserjs/ghacks-user.js/master/updater.sh"
+    dest: "{{ profile_path }}/updater.sh"
+    mode: 0770
+
+- name: copy user-overrides.js
+  copy:
+    src: files/user-overrides.js
+    dest: "{{ profile_path }}/user-overrides.js"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    mode: 0644
+  notify: update config
+
+- name: remove unrequired handlers from handlers.json
+  copy:
+    src: files/handlers.json
+    dest: "{{ profile_path }}/handlers.json"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    mode: 0644

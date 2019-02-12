@@ -1,0 +1,1 @@
+{"xhrTestDomain":"decentraleyes.org","showIconBadge":true,"blockMissing":true,"disablePrefetch":true,"stripMetadata":true,"whitelistedDomains":{}}
