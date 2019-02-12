@@ -39,3 +39,5 @@ user_pref("browser.search.widget.inNavBar", false);
 user_pref("browser.urlbar.placeholderName", "keyword");
 
 user_pref("browser.newtabpage.activity-stream.default.sites", "");
+
+user_pref("browser.display.use_document_fonts", 1);

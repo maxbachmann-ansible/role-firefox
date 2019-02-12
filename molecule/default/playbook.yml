@@ -4,14 +4,6 @@
   become: true
 
   vars:
-    molecule_test: true
-    search_engines: 
-      - startpage
-      - duckduckgo
-      - qwant
-      - searx
-      - invidious
-
   pre_tasks:
     - name: Update apt cache.
       apt: update_cache=yes cache_valid_time=600

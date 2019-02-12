@@ -9,12 +9,7 @@
     path: "{{ profile_path }}/places.sqlite"
     state: absent
 
-- name: remove backup folder of places.sqlite
+- name: remove bookmarkbackups
   file:
-    path: "{{ profile_path }}/bookmarkbackups"
+    path: "{{ profile_path }}/bookmarkbackups/*.jsonlz4"
     state: absent
-
-- name: add backup directory again
-  file:
-    path: "{{ profile_path }}/bookmarkbackups"
-    state: directory

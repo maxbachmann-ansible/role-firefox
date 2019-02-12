@@ -10,3 +10,37 @@
     background-size: auto 30% !important;
   }
 }
+
+@font-face {
+  font-family: "Font Awesome 5 Brands";
+  src: local("Font Awesome 5 Brands Regular");
+}
+
+@font-face {
+  font-family: "Font Awesome 5 Free";
+  src: local("Font Awesome 5 Free Regular");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Font Awesome 5 Free";
+  src: local("Font Awesome 5 Free Solid");
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "FontAwesome";
+  src: local("fontawesome");
+}
+
+@font-face {
+  font-family: "Font Awesome 5 Pro";
+  src: local("Font Awesome 5 Free Regular");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Font Awesome 5 Pro";
+  src: local("Font Awesome 5 Free Solid");
+  font-weight: 900;
+}

@@ -1,13 +1,18 @@
 ---
 firefox_path: "/home/{{ ansible_user_id }}/.mozilla/firefox"
-addon_download: "https://addons.mozilla.org/firefox/downloads/file"
 profile_name: "ansibleProfile.default"
 profile_path: "{{ firefox_path }}/{{ profile_name }}"
+addon_download: "https://addons.mozilla.org/firefox/downloads/file"
 
-search_engines_list:
+search_engine_list:
+  - google:
+    NAME: Search Google
+    HREF: https://www.google.com/search?q=%s
+    SHORTCUTURL: "g:"
+
   - startpage:
     NAME: startpage websearch
-    HREF: https://www.startpage.com/do/search
+    HREF: https://www.startpage.com/do/search/?q=%s
     ICON_URI: https://www.startpage.com/assets/images/logo-180x180.png?v=48842639
     ICON: "{{lookup('file', 'searchmachines/startpage_icon')}}"
     SHORTCUTURL: "s:"
@@ -15,18 +20,18 @@ search_engines_list:
 
   - duckduckgo:
     NAME: Search DuckDuckGo — Privacy, simplified.
-    HREF: https://duckduckgo.com/html
+    HREF: https://duckduckgo.com/?q=%s
     SHORTCUTURL: "ddg:"
     POST_DATA: q%3D%25s
 
   - qwant:
     NAME: Quant search
-    HREF: https://lite.qwant.com/?l=de&q=%s&t=web
+    HREF: https://lite.qwant.com/?q=%s
     SHORTCUTURL: "q:"
 
   - searx:
     NAME: searx
-    HREF: https://suche.honigdachse.de/
+    HREF: https://suche.honigdachse.de/?q=%s
     ICON_URI: https://suche.honigdachse.de/static/themes/honigdachse/img/favicon.png
     ICON: "{{lookup('file', 'searchmachines/searx_icon')}}"
     SHORTCUTURL: "sx:"

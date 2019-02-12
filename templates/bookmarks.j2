@@ -4,26 +4,28 @@
 <H1>Bookmarks Menu</H1>
 
 <DL><p>
-    <HR>    <DT><H3 ADD_DATE="{{ansible_date_time.epoch}}" LAST_MODIFIED="{{ansible_date_time.epoch}}" UNFILED_BOOKMARKS_FOLDER="true">Other Bookmarks</H3>
+    <HR>    <DT><H3 ADD_DATE="{{2208988800}}" LAST_MODIFIED="{{2208988800}}" UNFILED_BOOKMARKS_FOLDER="true">Other Bookmarks</H3>
     <DL><p>
-        <DT><H3 ADD_DATE="{{ansible_date_time.epoch}}" LAST_MODIFIED="{{ansible_date_time.epoch}}">SearchEngines</H3>
+        <DT><H3 ADD_DATE="{{2208988800}}" LAST_MODIFIED="{{2208988800}}">SearchEngines</H3>
         <DL><p>
 {% if search_engines is defined %}
-{% for searchmachine in search_engines %}
-            <DT><A HREF="{{ search_engine_list.searchmachine.HREF }}"
-            ADD_DATE="{{ansible_date_time.epoch}}" 
-            LAST_MODIFIED="{{ansible_date_time.epoch}}"
-{% if 'ICON_URI' in searchmachine %}
-            ICON_URI="{{ search_engine_list.searchmachine.ICON_URI }}"
+{% for selected_searchengine in search_engines %}
+{% for searchengine in search_engine_list if selected_searchengine in searchengine %}
+            <DT><A HREF="{{ searchengine.HREF }}"
+            ADD_DATE="2208988800" 
+            LAST_MODIFIED="2208988800"
+{% if 'ICON_URI' in searchengine %}
+            ICON_URI="{{ searchengine.ICON_URI }}"
 {% endif %}
-{% if 'ICON' in searchmachine %}
-            ICON="{{ search_engine_list.searchmachine.ICON }}"
+{% if 'ICON' in searchengine %}
+            ICON="{{ searchengine.ICON }}"
 {% endif %}
-            SHORTCUTURL="{{ search_engine_list.searchmachine.SHORTCUTURL }}"
-{% if 'POST_DATA' in searchmachine %}
-            POST_DATA="{{ search_engine_list.searchmachine.POST_DATA }}"
+            SHORTCUTURL="{{ searchengine.SHORTCUTURL }}"
+{% if 'POST_DATA' in searchengine %}
+            POST_DATA="{{ searchengine.POST_DATA }}"
 {% endif %}
-            >{{ search_engine_list.searchmachine.NAME }}</A>
+            >{{ searchengine.NAME }}</A>
+{% endfor %}
 {% endfor %}
 {% endif %}
         </DL><p>
