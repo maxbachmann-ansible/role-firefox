@@ -16,7 +16,7 @@
   become: true
   pacman:
     name: pulseaudio
-    state: latest
+    state: present
     update_cache: true
   when: ansible_distribution == 'Archlinux'
 
