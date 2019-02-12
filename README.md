@@ -62,8 +62,16 @@ The script gives the possibility to choose between the following search engines.
 ## Dependencies
 None.
 
-# Example Playbook
+## Example Playbook
 ```yaml
   search_engines:
     - startpage
 ```
+
+## License
+GNU General Public License v3.0
+
+
+
+## Author Information
+This role was created by maxbachmann
