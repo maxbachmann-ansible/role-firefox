@@ -4,6 +4,10 @@
     url: "https://raw.githubusercontent.com/ghacksuserjs/ghacks-user.js/master/updater.sh"
     dest: "{{ profile_path }}/updater.sh"
     mode: 0770
+  retries: 5
+  delay: 2
+  register: user_js_result
+  until: user_js_result is succeeded
 
 - name: copy user-overrides.js
   copy:

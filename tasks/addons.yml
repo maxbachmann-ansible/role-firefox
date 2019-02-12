@@ -28,6 +28,10 @@
   get_url:
     url: "{{ addon_download }}/1166954/ublock_origin-1.17.4-an+fx.xpi"
     dest: "{{ profile_path }}/extensions/uBlock0@raymondhill.net.xpi"
+  retries: 5
+  delay: 2
+  register: ublock_result
+  until: ublock_result is succeeded
 
 - name: create config folder UBlock Origin
   file: state=directory path="{{ profile_path }}/browser-extension-data/uBlock0@raymondhill.net"
@@ -45,6 +49,10 @@
   get_url:
     url: "{{ addon_download }}/1057194/umatrix-1.3.14-an+fx.xpi"
     dest: "{{ profile_path }}/extensions/uMatrix@raymondhill.net.xpi"
+  retries: 5
+  delay: 2
+  register: umatrix_result
+  until: umatrix_result is succeeded
 
 - name: create config folder UMatrix
   file:
@@ -64,6 +72,10 @@
   get_url:
     url: "{{ addon_download }}/1078499/decentraleyes-2.0.8-an+fx.xpi"
     dest: "{{ profile_path }}/extensions/jid1-BoFifL9Vbdl2zQ@jetpack.xpi"
+  retries: 5
+  delay: 2
+  register: decentraleyes_result
+  until: decentraleyes_result is succeeded
 
 - name: create config folder decentraleyes
   file:
@@ -83,24 +95,40 @@
   get_url:
     url: "{{ addon_download }}/792833/first_party_isolation-1.3.1-an+fx.xpi"
     dest: "{{ profile_path }}/extensions/{33c93ccc-ceed-47d2-9645-805ea58c8a07}.xpi"
+  retries: 5
+  delay: 2
+  register: first_party_result
+  until: first_party_result is succeeded
 
 # Neat URL
 - name: download Neat URL
   get_url:
     url: "{{ addon_download }}/970953/neat_url-4.1.5-an+fx.xpi"
     dest: "{{ profile_path }}/extensions/neaturl@hugsmile.eu.xpi"
+  retries: 5
+  delay: 2
+  register: neat_url_result
+  until: neat_url_result is succeeded
 
 # Skip Redirect
 - name: download Skip Redirect
   get_url:
     url: "{{ addon_download }}/727843/skip_redirect-2.2.1-fx.xpi"
     dest: "{{ profile_path }}/extensions/skipredirect@sblask.xpi"
+  retries: 5
+  delay: 2
+  register: skip_redirect_result
+  until: skip_redirect_result is succeeded
 
 # Temporary Containers
 - name: download Temporary Containers
   get_url:
     url: "{{ addon_download }}/957989/temporary_containers-0.90-an+fx-linux.xpi"
     dest: "{{ profile_path }}/extensions/{c607c8df-14a7-4f28-894f-29e8722976af}.xpi"
+  retries: 5
+  delay: 2
+  register: temp_containers_result
+  until: temp_containers_result is succeeded
 
 - name: create config folder temporary containers
   file:
@@ -120,3 +148,7 @@
   get_url:
     url: "{{ addon_download }}/1171317/firefox_multi_account_containers-6.0.1-fx.xpi"
     dest: "{{ profile_path }}/extensions/@testpilot-containers.xpi"
+  retries: 5
+  delay: 2
+  register: multi_containers_result
+  until: multi_containers_result is succeeded

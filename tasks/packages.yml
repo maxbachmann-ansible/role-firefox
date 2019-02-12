@@ -11,6 +11,10 @@
     name: libselinux-python
     state: present
   when: ansible_distribution == 'Fedora' or ansible_distribution == 'RedHat'
+  retries: 5
+  delay: 2
+  register: packages_result
+  until: packages_result is succeeded
 
 - name: Install pulseaudio for sound output on arch linux
   become: true
@@ -19,6 +23,10 @@
     state: present
     update_cache: true
   when: ansible_distribution == 'Archlinux'
+  retries: 5
+  delay: 2
+  register: pacman_result
+  until: pacman_result is succeeded
 
 - name: Install firefox
   become: true
@@ -26,6 +34,10 @@
     name: firefox-esr
     state: present
   when: ansible_distribution == 'Debian'
+  retries: 5
+  delay: 2
+  register: firefox_esr_result
+  until: firefox_esr_result is succeeded
 
 - name: Install firefox
   become: true
@@ -33,3 +45,7 @@
     name: firefox
     state: present
   when: ansible_distribution == 'Fedora' or ansible_distribution == 'RedHat' or ansible_distribution == 'Ubuntu'
+  retries: 5
+  delay: 2
+  register: firefox_result
+  until: firefox_result is succeeded
