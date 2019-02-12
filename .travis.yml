@@ -6,15 +6,16 @@ env:
   global:
     - ROLE_NAME: apache
   matrix:
-    - MOLECULE_DISTRO: centos7
-    - MOLECULE_DISTRO: centos6
-    - MOLECULE_DISTRO: ubuntu1804
-    - MOLECULE_DISTRO: ubuntu1604
-    - MOLECULE_DISTRO: ubuntu1404
-    - MOLECULE_DISTRO: debian9
-    - MOLECULE_DISTRO: debian8
-    - MOLECULE_DISTRO: fedora27
-    # - MOLECULE_DISTRO: fedora29
+    - MOLECULE_DISTRO: geerlingguy/docker-centos7-ansible:latest
+    - MOLECULE_DISTRO: geerlingguy/docker-centos6-ansible:latest
+    - MOLECULE_DISTRO: geerlingguy/docker-ubuntu1804-ansible:latest
+    - MOLECULE_DISTRO: geerlingguy/docker-ubuntu1604-ansible:latest
+    - MOLECULE_DISTRO: geerlingguy/docker-ubuntu1404-ansible:latest
+    - MOLECULE_DISTRO: geerlingguy/docker-debian9-ansible:latest
+    - MOLECULE_DISTRO: geerlingguy/docker-debian8-ansible:latest
+    - MOLECULE_DISTRO: geerlingguy/docker-fedora27-ansible:latest
+    - MOLECULE_DISTRO: alekzonder/archlinux:latest
+    # - MOLECULE_DISTRO: geerlingguy/docker-fedora29-ansible:latest
 
 install:
   # Install test dependencies.
