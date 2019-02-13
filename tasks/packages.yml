@@ -5,23 +5,42 @@
     repo: ppa:mozillateam/ppa
   when: ansible_distribution == 'Ubuntu'
 
-- name: Install packages needed for firefox
+- name: Install packages needed for firefox on fedora and redhat
   become: true
-  package:
-    name: libselinux-python
+  dnf:
+    name: "{{ packages }}"
     state: present
+  vars:
+    packages:
+      - libselinux-python
+      - fontawesome-fonts
   when: ansible_distribution == 'Fedora' or ansible_distribution == 'RedHat'
   retries: 5
   delay: 2
-  register: packages_result
-  until: packages_result is succeeded
+  register: fedora_result
+  until: fedora_result is succeeded
 
-- name: Install pulseaudio for sound output on arch linux
+- name: Install packages needed for firefox on Ubuntu and Debian
+  become: true
+  apt:
+    name: fonts-font-awesome
+    state: present
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  retries: 5
+  delay: 2
+  register: debian_result
+  until: debian_result is succeeded
+
+- name: Install packages needed for firefox on Arch Linux
   become: true
   pacman:
-    name: pulseaudio
+    name: "{{ packages }}"
     state: present
     update_cache: true
+  vars:
+    packages:
+      - otf-font-awesome
+      - pulseaudio
   when: ansible_distribution == 'Archlinux'
   retries: 5
   delay: 2
