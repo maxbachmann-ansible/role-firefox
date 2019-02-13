@@ -1,3 +1,4 @@
+---
 - name: Install packages needed for firefox on fedora
   become: true
   dnf:
