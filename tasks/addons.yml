@@ -1,8 +1,12 @@
 ---
-- name: create directory "{{ firefox_path }}"
+- name: create directories needed for addons
   file:
     state: directory
-    path: "{{ firefox_path }}"
+    path: "{{ item }}"
+    recurse: yes
+  with_items:
+    - "{{ profile_path }}/extensions"
+    - "{{ profile_path }}/browser-extension-data"
 
 - name: copy profiles.ini
   template:
@@ -11,17 +15,6 @@
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
     mode: 0644
-
-# make sure directories for the addons exist
-- name: create project directory "{{ profile_path }}/extensions"
-  file:
-    state: directory
-    path: "{{ profile_path }}/extensions"
-
-- name: create project directory {{ profile_path }}/browser-extension-data
-  file:
-    state: directory
-    path: "{{ profile_path }}/browser-extension-data"
 
 - name: download addons
   get_url:
@@ -33,7 +26,7 @@
   register: addon_result
   until: addon_result is succeeded
 
-- name: create config folders
+- name: create config directories
   file:
     state: directory
     path: "{{ profile_path }}/browser-extension-data/{{ item.directory }}"
