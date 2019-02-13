@@ -42,7 +42,7 @@
 
 - name: debug
   debug:
-    msg: "{{ file_stat.results }}"
+    msg: "{{ file_stat }}"
 
 - name: create config folders
   file:
