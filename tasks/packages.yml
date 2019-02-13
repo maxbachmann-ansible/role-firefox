@@ -5,6 +5,10 @@
     repo: ppa:mozillateam/ppa
   when: ansible_distribution == 'Ubuntu'
 
+- name: debug
+  debug:
+    msg: "{{ ansible_distribution }}"
+
 - name: Install packages needed for firefox
   become: true
   package:
