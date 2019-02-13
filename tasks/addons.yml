@@ -34,14 +34,21 @@
   until: addon_result is succeeded
 
 - name: create config folders
-  file:
-    state: directory
-    path: "{{ filename }}/browser-extension-data/{{ filename }}"
+  debug:
+    msg: filename
   when: filename is string
   vars:
-    filename: "{{ lookup('first_found', dict(files=['files/' + item.directory + '/storage.js'], skip=true)) }}"
+    filename: "{{ lookup('first_found', dict(files=[item.directory], paths=['files'], skip=true)) }}"
   with_items: "{{ addon_list }}"
 
+- name: create config folders
+  file:
+    state: directory
+    path: "{{ profile_path }}/browser-extension-data/{{ filename }}"
+  when: filename is string
+  vars:
+    filename: "{{ lookup('first_found', dict(files=[item.directory], paths=['files'], skip=true)) }}"
+  with_items: "{{ addon_list }}"
 
 - name: Copy config
   copy:
