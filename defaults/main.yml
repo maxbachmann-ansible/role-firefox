@@ -4,6 +4,11 @@ profile_name: "ansibleProfile.default"
 profile_path: "{{ firefox_path }}/{{ profile_name }}"
 addon_download: "https://addons.mozilla.org/firefox/downloads/latest/"
 
+fonts_list:
+  - https://github.com/FortAwesome/Font-Awesome/raw/master/otfs/Font%20Awesome%205%20Brands-Regular-400.otf
+  - https://github.com/FortAwesome/Font-Awesome/raw/master/otfs/Font%20Awesome%205%20Free-Regular-400.otf
+  - https://github.com/FortAwesome/Font-Awesome/raw/master/otfs/Font%20Awesome%205%20Free-Solid-900.otf
+
 addon_list:
   - name: ublock-origin
     directory: "uBlock0@raymondhill.net"
