@@ -5,7 +5,7 @@
     repo: ppa:mozillateam/ppa
   when: ansible_distribution == 'Ubuntu'
 
-- name: Install packages needed for firefox on Ubuntu and Debian
+- name: Install packages needed for firefox on Ubuntu
   become: true
   apt:
     name: "{{ packages }}"
