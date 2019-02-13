@@ -34,9 +34,9 @@
   until: addon_result is succeeded
 
 - name: Check if a storage.js exists
-  local_action:
-    stat:
-      path: "files/{{item.directory}}/storage.js"
+  stat:
+    path: "files/{{item.directory}}/storage.js"
+  delegate_to: 127.0.0.1
   with_items: "{{ addon_list }}"
   register: file_stat
 
