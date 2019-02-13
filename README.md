@@ -62,8 +62,23 @@ The script gives the possibility to choose between the following search engines.
 ## Dependencies
 None.
 
-# Example Playbook
-```yaml
-  search_engines:
-    - startpage
-```
+## Example Playbook
+will follow soon.
+
+## Contribution Guidelines
+Contributions of all kinds are welcome, not only in the form of code but also with regards bug reports and documentation.
+Please keep the following in mind:
+
+**Bug Reports**:  Make sure you're running the latest version. If the issue(s) still persist: please open a clearly documented issue with a clear title.
+
+**Minor Bug Fixes**: Please send a pull request with a clear explanation of the issue or a link to the issue it solves.
+
+**Major Bug Fixes**: please discuss your approach in an issue before you start to alter a big part of the code.
+
+**New Features**: please discuss in a issue before you start to alter a big part of the code. Without discussion upfront, the pull request might not be accepted / merged.
+
+## License
+GNU General Public License v3.0
+
+## Author Information
+This role was created by maxbachmann
