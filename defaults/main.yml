@@ -4,6 +4,31 @@ profile_name: "ansibleProfile.default"
 profile_path: "{{ firefox_path }}/{{ profile_name }}"
 addon_download: "https://addons.mozilla.org/firefox/downloads/latest/"
 
+addon_list:
+  - name: ublock-origin
+    filename: "uBlock0@raymondhill.net"
+
+  - name: umatrix
+    filename: "uMatrix@raymondhill.net."}
+  
+  - name: decentraleyes
+    filename: "jid1-BoFifL9Vbdl2zQ@jetpack"}
+  
+  - name: first-party-isolation
+    filename: "{33c93ccc-ceed-47d2-9645-805ea58c8a07}"}
+  
+  - name: neat-url
+    filename: "neaturl@hugsmile.eu"}
+  
+  - name: skip-redirect
+    filename: "skipredirect@sblask"}
+  
+  - name: temporary-containers
+    filename: "{c607c8df-14a7-4f28-894f-29e8722976af}"}
+  
+  - name: multi-account-containers
+    filename: "@testpilot-containers"}
+
 search_engine_list:
   - google:
     NAME: Search Google
