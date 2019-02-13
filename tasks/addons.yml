@@ -42,14 +42,14 @@
     url: "{{ addon_download }}/{{item.download}}"
     dest: "{{ profile_path }}/extensions/{{item.name}}.xpi"
   with_items:
-    - {download: "1166954", name: "uBlock0@raymondhill.net"}
-    - {download: "1057194", name: "uMatrix@raymondhill.net."}
-    - {download: "1078499", name: "jid1-BoFifL9Vbdl2zQ@jetpack"}
-    - {download: "792833", name: "{33c93ccc-ceed-47d2-9645-805ea58c8a07}"}
-    - {download: "970953", name: "neaturl@hugsmile.eu"}
-    - {download: "727843", name: "skipredirect@sblask"}
-    - {download: "957989", name: "{c607c8df-14a7-4f28-894f-29e8722976af}"}
-    - {download: "1171317", name: "@testpilot-containers"}
+    - {download: "ublock-origin", name: "uBlock0@raymondhill.net"}
+    - {download: "umatrix", name: "uMatrix@raymondhill.net."}
+    - {download: "decentraleyes", name: "jid1-BoFifL9Vbdl2zQ@jetpack"}
+    - {download: "first-party-isolation", name: "{33c93ccc-ceed-47d2-9645-805ea58c8a07}"}
+    - {download: "neat-url", name: "neaturl@hugsmile.eu"}
+    - {download: "skip-redirect", name: "skipredirect@sblask"}
+    - {download: "temporary-containers", name: "{c607c8df-14a7-4f28-894f-29e8722976af}"}
+    - {download: "multi-account-containers", name: "@testpilot-containers"}
   retries: 5
   delay: 2
   register: addon_result
