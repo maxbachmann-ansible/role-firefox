@@ -33,30 +33,24 @@
   register: addon_result
   until: addon_result is succeeded
 
-- name: Check if a storage.js exists
-  stat:
-    path: "files/{{item.directory}}/storage.js"
-  delegate_to: 127.0.0.1
-  with_items: "{{ addon_list }}"
-  register: file_stat
-
-- name: debug
-  debug:
-    msg: "{{ file_stat }}"
-
 - name: create config folders
   file:
     state: directory
-    path: "{{ profile_path }}/browser-extension-data/{{ item.item.directory }}"
-  with_items: "{{ file_stat.results }}"
-  when: item.stat.exists == false
+    path: "{{ filename }}/browser-extension-data/{{ filename }}"
+  when: filename is string
+  vars:
+    filename: "{{ lookup('first_found', dict(files=['files/' + item.directory + '/storage.js'], skip=true)) }}"
+  with_items: "{{ addon_list }}"
+
 
 - name: Copy config
   copy:
     src: "files/{{ item.item.directory }}/storage.js"
-    dest: "{{ profile_path }}/browser-extension-data/{{ item.item.directory }}/storage.js"
+    dest: "{{ profile_path }}/browser-extension-data/{{ filename }}/storage.js"
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
     mode: 0644
-  with_items: "{{ file_stat.results }}"
-  when: item.stat.exists == false
+  when: filename is string
+  vars:
+    filename: "{{ lookup('first_found', dict(files=['files/' + item.directory + '/storage.js'], skip=true)) }}"
+  with_items: "{{ addon_list }}"
