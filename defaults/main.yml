@@ -2,7 +2,7 @@
 firefox_path: "/home/{{ ansible_user_id }}/.mozilla/firefox"
 profile_name: "ansibleProfile.default"
 profile_path: "{{ firefox_path }}/{{ profile_name }}"
-addon_download: "https://addons.mozilla.org/firefox/downloads/file"
+addon_download: "https://addons.mozilla.org/firefox/downloads/latest/"
 
 search_engine_list:
   - google:
