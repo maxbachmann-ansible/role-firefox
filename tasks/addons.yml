@@ -26,22 +26,22 @@
 # UBlock Origin
 - name: Install ublock origin
   block:
-   - get_url:
-       url: "{{ addon_download }}/1166954/ublock_origin-1.17.4-an+fx.xpi"
-       dest: "{{ profile_path }}/extensions/uBlock0@raymondhill.net.xpi"
-     retries: 5
-     delay: 2
-     register: ublock_result
-     until: ublock_result is succeeded
-   - file:
-       state: directory
-       path: "{{ profile_path }}/browser-extension-data/uBlock0@raymondhill.net"
-   - copy:
-       src: files/uBlock0@raymondhill.net/storage.js
-       dest: "{{ profile_path }}/browser-extension-data/uBlock0@raymondhill.net/storage.js"
-       owner: "{{ ansible_user_id }}"
-       group: "{{ ansible_user_id }}"
-       mode: 0644
+  - get_url:
+      url: "{{ addon_download }}/1166954/ublock_origin-1.17.4-an+fx.xpi"
+      dest: "{{ profile_path }}/extensions/uBlock0@raymondhill.net.xpi"
+    retries: 5
+    delay: 2
+    register: ublock_result
+    until: ublock_result is succeeded
+  - file:
+      state: directory
+      path: "{{ profile_path }}/browser-extension-data/uBlock0@raymondhill.net"
+  - copy:
+      src: files/uBlock0@raymondhill.net/storage.js
+      dest: "{{ profile_path }}/browser-extension-data/uBlock0@raymondhill.net/storage.js"
+      owner: "{{ ansible_user_id }}"
+      group: "{{ ansible_user_id }}"
+      mode: 0644
 
 # UMatrix
 - name: download uMatrix
