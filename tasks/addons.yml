@@ -23,75 +23,38 @@
     state: directory
     path: "{{ profile_path }}/browser-extension-data"
 
-# UBlock Origin
-- name: Install ublock origin
-  block:
-    - file:
-        state: directory
-        path: "{{ profile_path }}/browser-extension-data/uBlock0@raymondhill.net"
-    - copy:
-        src: files/uBlock0@raymondhill.net/storage.js
-        dest: "{{ profile_path }}/browser-extension-data/uBlock0@raymondhill.net/storage.js"
-        owner: "{{ ansible_user_id }}"
-        group: "{{ ansible_user_id }}"
-        mode: 0644
-
-# UMatrix
 - name: download addons
   get_url:
-    url: "{{ addon_download }}/{{item.name}}/addon-{{item.name}}-latest.xpi"
-    dest: "{{ profile_path }}/extensions/{{item.filename}}.xpi"
-  with_items:
-    - {name: "ublock-origin", filename: "uBlock0@raymondhill.net"}
-    - {name: "umatrix", filename: "uMatrix@raymondhill.net."}
-    - {name: "decentraleyes", filename: "jid1-BoFifL9Vbdl2zQ@jetpack"}
-    - {name: "first-party-isolation", filename: "{33c93ccc-ceed-47d2-9645-805ea58c8a07}"}
-    - {name: "neat-url", filename: "neaturl@hugsmile.eu"}
-    - {name: "skip-redirect", filename: "skipredirect@sblask"}
-    - {name: "temporary-containers", filename: "{c607c8df-14a7-4f28-894f-29e8722976af}"}
-    - {name: "multi-account-containers", filename: "@testpilot-containers"}
+    url: "{{ addon_download }}/{{ item.name }}/addon-{{ item.name }}-latest.xpi"
+    dest: "{{ profile_path }}/extensions/{{ item.directory }}.xpi"
+  with_items: "{{ addon_list }}"
   retries: 5
   delay: 2
   register: addon_result
   until: addon_result is succeeded
 
-- name: create config folder UMatrix
+- name: create config folders
   file:
     state: directory
-    path: "{{ profile_path }}/browser-extension-data/uMatrix@raymondhill.net"
+    path: "{{ profile_path }}/browser-extension-data/{{ item.directory }}"
+  with_items: "{{ addon_list }}" 
 
-- name: copy UMatrix config
+- name: Check if a storage.js exists
+  local_action:
+    stat:
+      path: "files/{{item.directory}}/storage.js"
+  with_items: "{{ addon_list }}" 
+  when: item != 'sda'
+  register: file_stat
+
+- name: Copy config
   copy:
-    src: files/uMatrix@raymondhill.net/storage.js
-    dest: "{{ profile_path }}/browser-extension-data/uMatrix@raymondhill.net/storage.js"
+    src: "files/{{item.item.directory}}/storage.js"
+    dest: "{{ profile_path }}/browser-extension-data/{{item.item.directory}}/storage.js"
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
     mode: 0644
-
-# Decentraleyes
-- name: create config folder decentraleyes
-  file:
-    state: directory
-    path: "{{ profile_path }}/browser-extension-data/jid1-BoFifL9Vbdl2zQ@jetpack"
-
-- name: copy dencetraleyes config
-  copy:
-    src: files/jid1-BoFifL9Vbdl2zQ@jetpack/storage.js
-    dest: "{{ profile_path }}/browser-extension-data/jid1-BoFifL9Vbdl2zQ@jetpack/storage.js"
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
-    mode: 0644
-
-# Temporary Containers
-- name: create config folder temporary containers
-  file:
-    state: directory
-    path: "{{ profile_path }}/browser-extension-data/{c607c8df-14a7-4f28-894f-29e8722976af}"
-
-- name: copy temporary containers config
-  copy:
-    src: files/{c607c8df-14a7-4f28-894f-29e8722976af}/storage.js
-    dest: "{{ profile_path }}/browser-extension-data/{c607c8df-14a7-4f28-894f-29e8722976af}/storage.js"
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
-    mode: 0644
+  with_items: "{{ file_stat.results }}"
+  when:
+    - not item | skipped
+    - item.stat.exists == false
