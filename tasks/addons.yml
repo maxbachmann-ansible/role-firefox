@@ -2,7 +2,7 @@
 - name: create directories needed for addons
   file:
     state: directory
-    path: "{{ firefox_path }}"
+    path: "{{ item }}"
     recurse: yes
   with_items:
     - "{{ profile_path }}/extensions"
