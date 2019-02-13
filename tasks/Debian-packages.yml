@@ -1,5 +1,5 @@
 ---
-- name: Install packages needed for firefox on Ubuntu and Debian
+- name: Install packages needed for firefox on Debian
   become: true
   apt:
     name: "{{ packages }}"
