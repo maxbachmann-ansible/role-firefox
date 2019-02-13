@@ -44,7 +44,7 @@
 - name: create config folders
   file:
     state: directory
-    path: "{{ profile_path }}/browser-extension-data/{{ filename }}"
+    path: "{{ profile_path }}/browser-extension-data/{{ item.directory }}"
   when: filename is string
   vars:
     filename: "{{ lookup('first_found', dict(files=[item.directory], paths=['files'], skip=true)) }}"
@@ -52,8 +52,8 @@
 
 - name: Copy config
   copy:
-    src: "files/{{ filename }}/storage.js"
-    dest: "{{ profile_path }}/browser-extension-data/{{ filename }}/storage.js"
+    src: "{{ filename }}/storage.js"
+    dest: "{{ profile_path }}/browser-extension-data/{{ item.directory }}/storage.js"
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
     mode: 0644
