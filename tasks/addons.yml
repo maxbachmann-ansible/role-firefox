@@ -33,28 +33,26 @@
   register: addon_result
   until: addon_result is succeeded
 
-- name: create config folders
-  file:
-    state: directory
-    path: "{{ profile_path }}/browser-extension-data/{{ item.directory }}"
-  with_items: "{{ addon_list }}" 
-
 - name: Check if a storage.js exists
   local_action:
     stat:
       path: "files/{{item.directory}}/storage.js"
-  with_items: "{{ addon_list }}" 
-  when: item != 'sda'
+  with_items: "{{ addon_list }}"
   register: file_stat
+
+- name: create config folders
+  file:
+    state: directory
+    path: "{{ profile_path }}/browser-extension-data/{{ item.item.directory }}"
+  with_items: "{{ file_stat.results }}"
+  when: item.stat.exists == false
 
 - name: Copy config
   copy:
-    src: "files/{{item.item.directory}}/storage.js"
-    dest: "{{ profile_path }}/browser-extension-data/{{item.item.directory}}/storage.js"
+    src: "files/{{ item.item.directory }}/storage.js"
+    dest: "{{ profile_path }}/browser-extension-data/{{ item.item.directory }}/storage.js"
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
     mode: 0644
   with_items: "{{ file_stat.results }}"
-  when:
-    - not item | skipped
-    - item.stat.exists == false
+  when: item.stat.exists == false
