@@ -3,7 +3,7 @@
   file:
     state: directory
     path: "{{ item }}"
-    recurse: yes
+    recurse: true
   with_items:
     - "{{ profile_path }}/extensions"
     - "{{ profile_path }}/browser-extension-data"
