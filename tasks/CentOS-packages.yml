@@ -1,7 +1,7 @@
 ---
-- name: Install packages needed for firefox on fedora and redhat
+- name: Install packages needed for firefox on centos and redhat
   become: true
-  dnf:
+  yum:
     name: "{{ packages }}"
     state: present
   vars:
