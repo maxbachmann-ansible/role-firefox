@@ -40,6 +40,10 @@
   with_items: "{{ addon_list }}"
   register: file_stat
 
+- name: debug
+  debug:
+    msg: "{{ file_stat.results }}"
+
 - name: create config folders
   file:
     state: directory
