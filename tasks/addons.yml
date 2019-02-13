@@ -39,17 +39,17 @@
 # UMatrix
 - name: download addons
   get_url:
-    url: "{{ addon_download }}/{{item.download}}"
-    dest: "{{ profile_path }}/extensions/{{item.name}}.xpi"
+    url: "{{ addon_download }}/{{item.name}}/addon-{{item.name}}-latest.xpi"
+    dest: "{{ profile_path }}/extensions/{{item.filename}}.xpi"
   with_items:
-    - {download: "ublock-origin", name: "uBlock0@raymondhill.net"}
-    - {download: "umatrix", name: "uMatrix@raymondhill.net."}
-    - {download: "decentraleyes", name: "jid1-BoFifL9Vbdl2zQ@jetpack"}
-    - {download: "first-party-isolation", name: "{33c93ccc-ceed-47d2-9645-805ea58c8a07}"}
-    - {download: "neat-url", name: "neaturl@hugsmile.eu"}
-    - {download: "skip-redirect", name: "skipredirect@sblask"}
-    - {download: "temporary-containers", name: "{c607c8df-14a7-4f28-894f-29e8722976af}"}
-    - {download: "multi-account-containers", name: "@testpilot-containers"}
+    - {name: "ublock-origin", filename: "uBlock0@raymondhill.net"}
+    - {name: "umatrix", filename: "uMatrix@raymondhill.net."}
+    - {name: "decentraleyes", filename: "jid1-BoFifL9Vbdl2zQ@jetpack"}
+    - {name: "first-party-isolation", filename: "{33c93ccc-ceed-47d2-9645-805ea58c8a07}"}
+    - {name: "neat-url", filename: "neaturl@hugsmile.eu"}
+    - {name: "skip-redirect", filename: "skipredirect@sblask"}
+    - {name: "temporary-containers", filename: "{c607c8df-14a7-4f28-894f-29e8722976af}"}
+    - {name: "multi-account-containers", filename: "@testpilot-containers"}
   retries: 5
   delay: 2
   register: addon_result
