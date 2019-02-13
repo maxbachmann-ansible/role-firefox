@@ -52,7 +52,7 @@
 
 - name: Copy config
   copy:
-    src: "{{ filename }}/storage.js"
+    src: "files/{{ item.directory }}/storage.js"
     dest: "{{ profile_path }}/browser-extension-data/{{ item.directory }}/storage.js"
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
