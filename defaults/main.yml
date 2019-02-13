@@ -6,28 +6,28 @@ addon_download: "https://addons.mozilla.org/firefox/downloads/latest/"
 
 addon_list:
   - name: ublock-origin
-    filename: "uBlock0@raymondhill.net"
+    directory: "uBlock0@raymondhill.net"
 
   - name: umatrix
-    filename: "uMatrix@raymondhill.net."}
+    directory: "uMatrix@raymondhill.net."}
   
   - name: decentraleyes
-    filename: "jid1-BoFifL9Vbdl2zQ@jetpack"}
+    directory: "jid1-BoFifL9Vbdl2zQ@jetpack"}
   
   - name: first-party-isolation
-    filename: "{33c93ccc-ceed-47d2-9645-805ea58c8a07}"}
+    directory: "{33c93ccc-ceed-47d2-9645-805ea58c8a07}"}
   
   - name: neat-url
-    filename: "neaturl@hugsmile.eu"}
+    directory: "neaturl@hugsmile.eu"}
   
   - name: skip-redirect
-    filename: "skipredirect@sblask"}
+    directory: "skipredirect@sblask"}
   
   - name: temporary-containers
-    filename: "{c607c8df-14a7-4f28-894f-29e8722976af}"}
+    directory: "{c607c8df-14a7-4f28-894f-29e8722976af}"}
   
   - name: multi-account-containers
-    filename: "@testpilot-containers"}
+    directory: "@testpilot-containers"}
 
 search_engine_list:
   - google:
