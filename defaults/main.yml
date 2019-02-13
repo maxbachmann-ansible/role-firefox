@@ -9,7 +9,7 @@ addon_list:
     directory: "uBlock0@raymondhill.net"
 
   - name: umatrix
-    directory: "uMatrix@raymondhill.net."
+    directory: "uMatrix@raymondhill.net"
 
   - name: decentraleyes
     directory: "jid1-BoFifL9Vbdl2zQ@jetpack"
