@@ -35,7 +35,7 @@
 
 - name: create config folders
   debug:
-    msg: filename
+    msg: "{{ filename }}"
   when: filename is string
   vars:
     filename: "{{ lookup('first_found', dict(files=[item.directory], paths=['files'], skip=true)) }}"
