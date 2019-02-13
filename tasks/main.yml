@@ -1,6 +1,6 @@
 ---
 - name: add packages
-  import_tasks: packages.yml
+  import_tasks: "{{ ansible_distribution }}-packages.yml"
 
 - name: add addons
   import_tasks: addons.yml
