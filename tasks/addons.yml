@@ -40,7 +40,7 @@
 - name: download addons
   get_url:
     url: "{{ addon_download }}/{{item.download}}"
-    dest: "{{ profile_path }}/extensions/{{item.path}}.xpi"
+    dest: "{{ profile_path }}/extensions/{{item.name}}.xpi"
   with_items:
     - {download: "1166954/ublock_origin-1.17.4-an+fx.xpi", name: "uBlock0@raymondhill.net"}
     - {download: "1057194/umatrix-1.3.14-an+fx.xpi", name: "uMatrix@raymondhill.net."}
