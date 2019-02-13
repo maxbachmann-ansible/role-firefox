@@ -2,7 +2,32 @@
 firefox_path: "/home/{{ ansible_user_id }}/.mozilla/firefox"
 profile_name: "ansibleProfile.default"
 profile_path: "{{ firefox_path }}/{{ profile_name }}"
-addon_download: "https://addons.mozilla.org/firefox/downloads/file"
+addon_download: "https://addons.mozilla.org/firefox/downloads/latest/"
+
+addon_list:
+  - name: ublock-origin
+    directory: "uBlock0@raymondhill.net"
+
+  - name: umatrix
+    directory: "uMatrix@raymondhill.net"
+
+  - name: decentraleyes
+    directory: "jid1-BoFifL9Vbdl2zQ@jetpack"
+
+  - name: first-party-isolation
+    directory: "{33c93ccc-ceed-47d2-9645-805ea58c8a07}"
+
+  - name: neat-url
+    directory: "neaturl@hugsmile.eu"
+
+  - name: skip-redirect
+    directory: "skipredirect@sblask"
+
+  - name: temporary-containers
+    directory: "{c607c8df-14a7-4f28-894f-29e8722976af}"
+
+  - name: multi-account-containers
+    directory: "@testpilot-containers"
 
 search_engine_list:
   - google:

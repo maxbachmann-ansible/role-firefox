@@ -1,1 +1,0 @@
-{"enable":true,"strict":true,"mode":"self","referer":"","ui-icon-color-mode":"custom","ui-icon-color-custom":"#000000","allow":"","whitelist-default":true,"whitelist-sources":[],"migrated":false}
