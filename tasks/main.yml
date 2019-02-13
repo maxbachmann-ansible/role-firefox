@@ -4,6 +4,10 @@
   when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
 
 - name: add packages
+  include_tasks: "Fedora-packages.yml"
+  when: ansible_distribution == 'Fedora'
+
+- name: add packages
   include_tasks: "Archlinux-packages.yml"
   when: ansible_distribution == 'ArchLinux'
 
