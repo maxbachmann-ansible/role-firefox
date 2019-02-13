@@ -1,6 +1,19 @@
 ---
 - name: add packages
-  import_tasks: "{{ ansible_distribution }}-packages.yml"
+  import_tasks: "CentOS-packages.yml"
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+
+- name: add packages
+  import_tasks: "Archlinux-packages.yml"
+  when: ansible_distribution == 'ArchLinux'
+
+- name: add packages
+  import_tasks: "Ubuntu-packages.yml"
+  when: ansible_distribution == 'Ubuntu'
+
+- name: add packages
+  import_tasks: "Debian-packages.yml"
+  when: ansible_distribution == 'Debian'
 
 - name: add addons
   import_tasks: addons.yml
