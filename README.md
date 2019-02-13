@@ -43,20 +43,20 @@ A list of the search engines that get added to the browser during the installati
 ## Search Engines
 The script gives the possibility to choose between the following search engines.
 
-| keyword | searchengine                              |
-|---------|-------------------------------------------|
-| g:      | https://www.google.com/search?q=%s        |
-| ddg:    | https://duckduckgo.com/?q=%s              |
-| s:      | https://www.startpage.com/do/search/?q=%s |
-| sx:     | https://suche.honigdachse.de/?q=%s        |
-| q:      | https://lite.qwant.com/?q=%s              |
-| yt:     | https://invidio.us/search?q=%s            |
+| keyword | searchengine                                           |
+|---------|--------------------------------------------------------|
+| g:      | [google](https://www.google.com/search?q=%s)           |
+| ddg:    | [duckduckgo](https://duckduckgo.com/?q=%s)             |
+| s:      | [startpage](https://www.startpage.com/do/search/?q=%s) |
+| sx:     | [searx](https://suche.honigdachse.de/?q=%s)            |
+| q:      | [qwant](https://lite.qwant.com/?q=%s)                  |
+| yt:     | [invidio.us](https://invidio.us/search?q=%s)           |
 
 1) Google is includes but definetly not recommended for privacy reasons.
 2) DuckDuckgo is not optimal either since it´s located in the US and uses Amazon AWS.
 3) Startpage anonymously serves google results.
 4) suche.honigdachse is a instance of searx. Searx is a search engine, that can be self hosted to serve results from multiple search engines.
-5) Quant is a french search engine with a own search index.
+5) Qwant is a french search engine with a own search index.
 6) Invidious anonymously serves youtube results.
 
 ## Dependencies
