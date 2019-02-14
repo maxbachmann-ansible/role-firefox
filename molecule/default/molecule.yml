@@ -25,11 +25,11 @@ platforms:
   - name: ansible-ubuntu-lts
     image: ubuntu
     image_version: '18.04'
-  # - name: ansible-arch
-  #  image: archimg/base
-  #  image_version: full
-  #  command: /lib/systemd/systemd
-  #  privileged: true
+  - name: ansible-arch
+    image: archlinux/base
+    image_version: latest
+    command: /lib/systemd/systemd
+    privileged: true
   - name: ansible-centos
     image: centos
     image_version: latest
