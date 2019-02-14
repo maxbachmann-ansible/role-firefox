@@ -1,15 +1,13 @@
 ---
+- name: remove old search engines
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - "{{ profile_path }}/places.sqlite"
+    - "{{ profile_path }}/bookmarkbackups/*.jsonlz4"
+
 - name: add search engines
   template:
     src: templates/bookmarks.j2
     dest: "{{ profile_path }}/bookmarks.html"
-
-- name: remove places.sqlite
-  file:
-    path: "{{ profile_path }}/places.sqlite"
-    state: absent
-
-- name: remove bookmarkbackups
-  file:
-    path: "{{ profile_path }}/bookmarkbackups/*.jsonlz4"
-    state: absent
