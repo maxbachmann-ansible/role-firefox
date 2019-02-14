@@ -26,7 +26,7 @@ Installing this role is very simple:
 ```bash
 ansible-galaxy install maxbachmann.firefox
 ```
-This will install the zabbix-agent role into your roles directory.
+This will install the firefox role into your roles directory.
 
 ## Role Variables
 Avaible variables are listed below, along with default values (see `defaults/main.yml`):
