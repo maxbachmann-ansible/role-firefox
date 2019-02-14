@@ -35,8 +35,6 @@ platforms:
   - name: ansible-fedora-latest
     image: fedora
     image_version: latest
-    command: /usr/lib/systemd/systemd
-    privileged: true
 
   - name: ansible-debian-latest
     image: debian
