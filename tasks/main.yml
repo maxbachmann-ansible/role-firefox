@@ -9,7 +9,7 @@
 
 - name: add packages
   include_tasks: "Archlinux-packages.yml"
-  when: ansible_distribution == 'ArchLinux'
+  when: ansible_distribution == 'Archlinux'
 
 - name: add packages
   include_tasks: "Ubuntu-packages.yml"
