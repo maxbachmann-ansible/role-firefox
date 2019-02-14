@@ -81,7 +81,7 @@ The script gives the possibility to choose between the following search engines.
 6) Invidious anonymously serves youtube results.
 
 The search engines can be used by typing the keyword into the URL-Bar of Firefox
-![keywords](https://github.com/maxbachmann/role-firefox/raw/master/src/common/images/keyword.png)
+![keywords](https://raw.githubusercontent.com/maxbachmann/role-firefox/master/common/images/keyword.png)
 
 ## Dependencies
 None.
