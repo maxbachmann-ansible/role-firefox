@@ -15,7 +15,7 @@ This role will work on the following operating systems:
 - CentOS
 - Debian
 - Ubuntu
-- ArchLinux (untested)
+- ArchLinux
 
 So, you'll need one of those operating systems.. :-)
 Please sent Pull Requests or suggestions when you want to use this role for other Operating systems.
