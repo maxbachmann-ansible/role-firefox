@@ -1,27 +1,50 @@
 ---
 language: python
-services: docker
+python: "2.7"
 
+# Spin off separate builds for each of the following versions of Ansible
 env:
-  global:
-    - ROLE_NAME: apache
-  matrix:
-    - MOLECULE_DISTRO: centos7
-    - MOLECULE_DISTRO: centos6
-    - MOLECULE_DISTRO: ubuntu1804
-    - MOLECULE_DISTRO: ubuntu1604
-    - MOLECULE_DISTRO: ubuntu1404
-    - MOLECULE_DISTRO: debian9
-    - MOLECULE_DISTRO: debian8
-    - MOLECULE_DISTRO: fedora27
-    - MOLECULE_DISTRO: fedora29
+  - ANSIBLE_VERSION=2.2
+  - ANSIBLE_VERSION=2.3
+  - ANSIBLE_VERSION=2.4
+  - ANSIBLE_VERSION=2.5
+  - ANSIBLE_VERSION=2.6
+
+# Require the standard build environment
+sudo: required
+
+# Require Docker
+services:
+  - docker
+
+# Cache Ansible and Molecule to speed things up
+cache:
+  - pip
 
 install:
-  # Install test dependencies.
-  - pip install molecule docker
+  # Install Ansible
+  - pip install "ansible~=$ANSIBLE_VERSION"
+
+  # Install Python API for Docker (required by Molecule Docker driver)
+  - pip install docker
+
+  # Lock docker-py to 2.7 to avoid crashes when creating docker images
+  - pip install "docker~=2.7"
+
+  # Install Molecule
+  - pip install molecule
+
+  # Check Ansible version
+  - ansible --version
+
+  # Check Molecule version
+  - molecule --version
+
+  # Build the Docker images
+  - molecule create
+  - molecule destroy
 
 script:
-  # Run tests.
   - molecule test
 
 notifications:

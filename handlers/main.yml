@@ -3,5 +3,4 @@
   command: '"{{ profile_path }}/updater.sh" -u -s'
 
 - name: install fonts
-  become: true
-  command: 'fc-cache -fv'
+  command: 'fc-cache -f -v'

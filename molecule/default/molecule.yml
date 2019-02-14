@@ -3,24 +3,39 @@ dependency:
   name: galaxy
 driver:
   name: docker
+ansible:
+  verbose: vv
+
+provisioner:
+  name: ansible
+  inventory:
+    group_vars:
+      all:
 lint:
   name: yamllint
   options:
     config-file: molecule/default/yaml-lint.yml
 platforms:
-  - name: instance
-    image: "geerlingguy/docker-${MOLECULE_DISTRO:-centos7}-ansible:latest"
-    command: ${MOLECULE_DOCKER_COMMAND:-""}
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  - name: ansible-ubuntu-latest
+    image: ubuntu
+    image_version: latest
+
+  - name: ansible-arch-latest
+    image: archlinux/base
+    image_version: latest
+    command: /lib/systemd/systemd
     privileged: true
-    pre_build_image: true
-provisioner:
-  name: ansible
-  lint:
-    name: ansible-lint
-  playbooks:
-    converge: ${MOLECULE_PLAYBOOK:-playbook.yml}
+
+  - name: ansible-centos-latest
+    image: centos
+    image_version: latest
+    command: /usr/lib/systemd/systemd
+    privileged: true
+
+  - name: ansible-debian-latest
+    image: debian
+    image_version: latest
+
 scenario:
   name: default
 verifier:

@@ -1,23 +1,9 @@
 ---
 - name: add packages
-  include_tasks: "CentOS-packages.yml"
-  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
-
-- name: add packages
-  include_tasks: "Fedora-packages.yml"
-  when: ansible_distribution == 'Fedora'
-
-- name: add packages
-  include_tasks: "Archlinux-packages.yml"
-  when: ansible_distribution == 'ArchLinux'
-
-- name: add packages
-  include_tasks: "Ubuntu-packages.yml"
-  when: ansible_distribution == 'Ubuntu'
-
-- name: add packages
-  include_tasks: "Debian-packages.yml"
-  when: ansible_distribution == 'Debian'
+  include_task: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_distribution }}-{{ ansible_distribution_major_version}}.yml"
+    - "{{ ansible_distribution }}.yml"
 
 - name: add fonts.yml
   import_tasks: fonts.yml
