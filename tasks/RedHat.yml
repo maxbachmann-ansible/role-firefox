@@ -10,6 +10,7 @@
       - fontawesome-fonts
       - firefox
       - fontconfig
+      - firejail
   retries: 5
   delay: 2
   register: redhat_result

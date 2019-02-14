@@ -9,6 +9,7 @@
       - fonts-font-awesome
       - firefox-esr
       - fontconfig
+      - firejail
   retries: 5
   delay: 2
   register: debian_result
