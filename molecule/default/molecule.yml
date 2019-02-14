@@ -11,8 +11,10 @@ provisioner:
   inventory:
     group_vars:
       all:
-        unbound_enable_service: false
-
+lint:
+  name: yamllint
+  options:
+    config-file: molecule/default/yaml-lint.yml
 platforms:
   - name: ansible-ubuntu-16-04-lts
     image: ubuntu
