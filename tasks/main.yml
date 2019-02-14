@@ -2,7 +2,7 @@
 - name: add packages
   include_task: "Debian.yml"
   when: ansible_distribution == "Debian"
-  
+
 - name: add packages
   include_task: "Ubuntu.yml"
   when: ansible_distribution == "Ubuntu"
