@@ -76,4 +76,3 @@
   delay: 2
   register: arch_fedora_font_result
   until: arch_fedora_font_result is succeeded
-
