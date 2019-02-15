@@ -1,5 +1,6 @@
 ---
 - name: create font directory
+  become: true
   file:
     state: directory
     path: "/usr/share/fonts/ansible-fonts"
@@ -15,3 +16,21 @@
   register: addon_result
   until: addon_result is succeeded
   notify: install fonts
+
+- name: Install fonts
+  become: true
+  package:
+    name: "{{ packages }}"
+    state: present
+    update_cache: true
+  vars:
+    packages:
+      - "{{ ansible_distribution }}_package_fonts"
+      - fontconfig
+  retries: 5
+  delay: 2
+  register: font_result
+  until: font_result is succeeded
+
+
+
