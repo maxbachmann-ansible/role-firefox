@@ -3,6 +3,7 @@
   file:
     path: "{{ profile_path }}/chrome"
     state: directory
+  tag: design
 
 - name: add background image
   copy:
@@ -11,6 +12,7 @@
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
     mode: 0644
+  tag: design
 
 - name: add userContent.css
   copy:
@@ -19,3 +21,4 @@
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
     mode: 0644
+  tag: design

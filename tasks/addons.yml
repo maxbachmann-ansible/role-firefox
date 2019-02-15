@@ -7,6 +7,7 @@
   with_items:
     - "{{ profile_path }}/extensions"
     - "{{ profile_path }}/browser-extension-data"
+  tag: addon
 
 - name: copy profiles.ini
   template:
@@ -15,6 +16,7 @@
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
     mode: 0644
+  tag: addon
 
 - name: download addons
   get_url:
@@ -25,6 +27,7 @@
   delay: 2
   register: addon_result
   until: addon_result is succeeded
+  tag: addon
 
 - name: create config directories
   file:
@@ -34,6 +37,7 @@
   vars:
     filename: "{{ lookup('first_found', dict(files=[item.directory], paths=['files'], skip=true)) }}"
   with_items: "{{ addon_list }}"
+  tag: addon
 
 - name: Copy config
   copy:
@@ -46,3 +50,4 @@
   vars:
     filename: "{{ lookup('first_found', dict(files=['files/' + item.directory + '/storage.js'], skip=true)) }}"
   with_items: "{{ addon_list }}"
+  tag: addon

@@ -1,19 +1,15 @@
 ---
 - name: add packages
   include_tasks: "{{ ansible_distribution }}.yml"
-  tag: setup
 
 - name: add addons
   import_tasks: addons.yml
-  tag: addon
 
 - name: add about:config
   import_tasks: config.yml
-  tag: about:config
 
 - name: add searchengines
   import_tasks: searchengines.yml
-  tag: searchengines
 
 - name: add design.yml
   import_tasks: design.yml

@@ -6,8 +6,10 @@
   with_items:
     - "{{ profile_path }}/places.sqlite"
     - "{{ profile_path }}/bookmarkbackups/*.jsonlz4"
+  tag: searchengines
 
 - name: add search engines
   template:
     src: templates/bookmarks.j2
     dest: "{{ profile_path }}/bookmarks.html"
+  tag: searchengines
