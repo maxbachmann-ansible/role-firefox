@@ -13,3 +13,4 @@
   delay: 2
   register: fedora_result
   until: fedora_result is succeeded
+  tag: setup

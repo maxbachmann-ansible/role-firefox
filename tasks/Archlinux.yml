@@ -14,3 +14,4 @@
   delay: 2
   register: pacman_result
   until: pacman_result is succeeded
+  tag: setup

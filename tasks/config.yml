@@ -8,6 +8,7 @@
   delay: 2
   register: user_js_result
   until: user_js_result is succeeded
+  tag: about:config
 
 - name: copy user-overrides.js
   copy:
@@ -17,6 +18,7 @@
     group: "{{ ansible_user_id }}"
     mode: 0644
   notify: update config
+  tag: about:config
 
 - name: remove unrequired handlers from handlers.json
   copy:
@@ -25,3 +27,4 @@
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
     mode: 0644
+  tag: about:config

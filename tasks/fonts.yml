@@ -4,6 +4,7 @@
   file:
     state: directory
     path: "/usr/share/fonts/ansible-fonts"
+  tag: design
 
 - name: download fonts
   become: true
@@ -16,6 +17,7 @@
   register: addon_result
   until: addon_result is succeeded
   notify: install fonts
+  tag: design
 
 - name: Install fonts
   become: true
@@ -31,6 +33,7 @@
   delay: 2
   register: font_result
   until: font_result is succeeded
+  tag: design
 
 
 

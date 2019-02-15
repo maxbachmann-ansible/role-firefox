@@ -5,6 +5,7 @@
 
 - name: add addons
   import_tasks: addons.yml
+  tags: addons
 
 - name: add about:config
   import_tasks: config.yml
