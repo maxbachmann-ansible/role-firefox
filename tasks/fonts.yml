@@ -1,5 +1,6 @@
 ---
 - name: create font directory
+  become: true
   file:
     state: directory
     path: "/usr/share/fonts/ansible-fonts"
