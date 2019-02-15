@@ -12,4 +12,3 @@
   delay: 2
   register: centos_result
   until: centos_result is succeeded
-  tag: setup

@@ -18,4 +18,3 @@
   delay: 2
   register: ubuntu_result
   until: ubuntu_result is succeeded
-  tag: setup

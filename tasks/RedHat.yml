@@ -13,4 +13,3 @@
   delay: 2
   register: redhat_result
   until: redhat_result is succeeded
-  tag: setup
