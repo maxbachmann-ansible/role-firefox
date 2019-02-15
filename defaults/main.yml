@@ -9,6 +9,19 @@ fonts_list:
   - https://github.com/FortAwesome/Font-Awesome/raw/master/otfs/Font%20Awesome%205%20Free-Regular-400.otf
   - https://github.com/FortAwesome/Font-Awesome/raw/master/otfs/Font%20Awesome%205%20Free-Solid-900.otf
 
+Archlinux_package_fonts:
+  - otf-font-awesome
+CentOS_package_fonts:
+  - fontawesome-fonts
+Debian_package_fonts:
+  - fonts-font-awesome
+Fedora_package_fonts:
+  - fontawesome-fonts
+RedHat_package_fonts:
+  - fontawesome-fonts
+Ubuntu_package_fonts:
+  - fonts-font-awesome
+
 addon_list:
   - name: ublock-origin
     directory: "uBlock0@raymondhill.net"

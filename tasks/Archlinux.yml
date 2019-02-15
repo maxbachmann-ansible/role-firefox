@@ -7,10 +7,8 @@
     update_cache: true
   vars:
     packages:
-      - otf-font-awesome
       - pulseaudio
       - firefox
-      - fontconfig
       - firejail
   retries: 5
   delay: 2
