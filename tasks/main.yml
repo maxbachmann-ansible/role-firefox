@@ -13,8 +13,6 @@
 
 - name: add design.yml
   import_tasks: design.yml
-  tag: design
-
+  
 - name: add fonts.yml
   import_tasks: fonts.yml
-  tag: design
