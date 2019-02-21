@@ -1,5 +1,5 @@
 ---
-username: {{ ansible_user_id }}
+username: "{{ ansible_user_id }}"
 profile_name: "ansibleProfile.default"
 firefox_path: "/home/{{ username }}/.mozilla/firefox"
 profile_path: "{{ firefox_path }}/{{ profile_name }}"
