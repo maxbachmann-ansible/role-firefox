@@ -1,5 +1,5 @@
 ---
-- name: include config for 
+- name: include config for
   include_vars:
     dir: vars/addons
     extensions: yml
