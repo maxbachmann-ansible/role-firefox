@@ -1,5 +1,7 @@
 ---
-firefox_path: "/home/{{ username }}/.mozilla/firefox"
+root_path: "/root/.mozilla/firefox"
+home_path: "/home/{{ username }}/.mozilla/firefox"
+firefox_path: "{{ root_path if username == 'root' else home_path }}"
 addon_download: "https://addons.mozilla.org/firefox/downloads/latest/"
 
 fonts_list:

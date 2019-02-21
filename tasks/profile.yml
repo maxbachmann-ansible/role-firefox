@@ -12,7 +12,7 @@
   when: profile.matched > 0
 
 - name: create directory for config
-  command: "firefox -CreateProfile {{ profile_name }}"
+  command: "firefox -CreateProfile {{ profile_name }} --headless"
   when: profile.matched == 0
 
 - name: check new directory name
