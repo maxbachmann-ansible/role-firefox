@@ -9,8 +9,8 @@
   template:
     src: templates/profiles.ini.j2
     dest: "{{ firefox_path }}/profiles.ini"
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
+    owner: "{{ username }}"
+    group: "{{ username }}"
     mode: 0644
 
 - name: add packages
