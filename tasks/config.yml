@@ -13,8 +13,8 @@
   copy:
     src: files/user-overrides.js
     dest: "{{ profile_path }}/user-overrides.js"
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
+    owner: "{{ username }}"
+    group: "{{ username }}"
     mode: 0644
   notify: update config
 
@@ -22,6 +22,6 @@
   copy:
     src: files/handlers.json
     dest: "{{ profile_path }}/handlers.json"
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
+    owner: "{{ username }}"
+    group: "{{ username }}"
     mode: 0644
