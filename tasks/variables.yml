@@ -1,0 +1,20 @@
+---
+- name: include config for 
+  include_vars:
+    dir: vars/addons
+    extensions: yml
+
+- name: define fonts_list_extra
+  set_fact:
+    fonts_list: "{{ fonts_list | list + fonts_list_extra | list }}"
+  when: fonts_list_extra is defined
+
+- name: define addon_list_extra
+  set_fact:
+    addon_list: "{{ addon_list | list + addon_list_extra | list }}"
+  when: addon_list_extra is defined
+
+- name: define search_engine_list_extra
+  set_fact:
+    search_engine_list: "{{ search_engine_list | list + search_engine_list_extra | list }}"
+  when: search_engine_list_extra is defined

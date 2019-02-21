@@ -1,4 +1,7 @@
 ---
+- name: combine variables
+  import_tasks: variables.yml
+
 - name: add packages
   include_tasks: "{{ ansible_distribution }}.yml"
 

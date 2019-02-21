@@ -1,0 +1,11 @@
+{
+    "xhrTestDomain":"decentraleyes.org",
+    "showIconBadge":"{{ showIconBadge }}",
+    "blockMissing":"{{ blockMissing }}",
+    "disablePrefetch":"{{ disablePrefetch }}",
+    "stripMetadata":"{{ stripMetadata }}",
+    "whitelistedDomains":{
+{% for domain in whitelistedDomains %}
+        "{{ domain }}""{{ ',' if not loop.last }}"
+    }
+}
