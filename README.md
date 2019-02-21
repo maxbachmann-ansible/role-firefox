@@ -32,7 +32,13 @@ This will install the firefox role into your roles directory.
 Avaible variables are listed below, along with default values (see `defaults/main.yml`):
 
 ```yaml
-firefox_path: "/home/{{ ansible_user_id }}/.mozilla/firefox"
+username: "{{ ansible_user_id }}"
+```
+Make sure, your ``{{ ansible_user_id }}`` is the user you want to use for configuration!
+When you use the ``become: yes`` function in your ``ansible.cfg`` it will point to root.
+
+```yaml
+firefox_path: "/home/{{ username }}/.mozilla/firefox"
 profile_name: "ansibleProfile.default"
 profile_path: "{{ firefox_path }}/{{ profile_name }}"
 ```
