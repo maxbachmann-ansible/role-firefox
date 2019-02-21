@@ -1,8 +1,4 @@
 ---
-- name: debug
-  debug:
-    msg: "{{ username }}"
-
 - name: add packages
   include_tasks: "{{ ansible_distribution }}.yml"
 
