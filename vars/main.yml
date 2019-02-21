@@ -1,6 +1,6 @@
 ---
 username: "{{ ansible_user_id }}"
-profile_name: "{{ ansible_fqdn | uuid | hash('sha1') }}.default"
+profile_name: "{{ ansible_fqdn | to_uuid | hash('sha1') }}.default"
 
 search_engines:
   - startpage
