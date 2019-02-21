@@ -27,4 +27,3 @@
   set_fact:
     profile_path: "{{ new_profile.files[0].path }}"
   when: profile.matched == 0
-  
