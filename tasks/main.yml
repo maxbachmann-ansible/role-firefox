@@ -4,6 +4,14 @@
     state: directory
     path: "{{ profile_path }}"
     recurse: true
+    
+- name: copy profiles.ini
+  template:
+    src: templates/profiles.ini.j2
+    dest: "{{ firefox_path }}/profiles.ini"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    mode: 0644
 
 - name: add packages
   include_tasks: "{{ ansible_distribution }}.yml"
