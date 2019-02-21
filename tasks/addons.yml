@@ -31,8 +31,8 @@
   copy:
     src: "files/{{ item.directory }}/storage.js"
     dest: "{{ profile_path }}/browser-extension-data/{{ item.directory }}/storage.js"
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
+    owner: "{{ username }}"
+    group: "{{ username }}"
     mode: 0644
   when: filename is string
   vars:
