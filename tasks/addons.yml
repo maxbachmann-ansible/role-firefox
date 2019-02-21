@@ -8,14 +8,6 @@
     - "{{ profile_path }}/extensions"
     - "{{ profile_path }}/browser-extension-data"
 
-- name: copy profiles.ini
-  template:
-    src: templates/profiles.ini.j2
-    dest: "{{ firefox_path }}/profiles.ini"
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
-    mode: 0644
-
 - name: download addons
   get_url:
     url: "{{ addon_download }}/{{ item.name }}/addon-{{ item.name }}-latest.xpi"
