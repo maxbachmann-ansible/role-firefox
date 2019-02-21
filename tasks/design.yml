@@ -8,14 +8,14 @@
   copy:
     src: files/chrome/firefox.png
     dest: "{{ profile_path }}/chrome/firefox.png"
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
+    owner: "{{ username }}"
+    group: "{{ username }}"
     mode: 0644
 
 - name: add userContent.css
   copy:
     src: files/chrome/userContent.css
     dest: "{{ profile_path }}/chrome/userContent.css"
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
+    owner: "{{ username }}"
+    group: "{{ username }}"
     mode: 0644
