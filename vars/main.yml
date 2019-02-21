@@ -1,0 +1,9 @@
+---
+username: "{{ ansible_user_id }}"
+profile_name: "{{ ansible_fqdn | uuid | hash('sha1') }}.default"
+
+search_engines:
+  - startpage
+  - qwant
+  - invidious
+  - searx
