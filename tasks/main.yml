@@ -3,7 +3,7 @@
   include_tasks: "{{ ansible_distribution }}.yml"
 
 - name: create profile
-  include_task: profile.yml
+  import_tasks: profile.yml
 
 - name: add addons
   import_tasks: addons.yml
@@ -19,4 +19,3 @@
 
 - name: add fonts.yml
   import_tasks: fonts.yml
-  
