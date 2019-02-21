@@ -44,9 +44,9 @@ search_engine_list:
     NAME: startpage websearch
     HREF: https://www.startpage.com/do/search/?q=%s
     ICON_URI: https://www.startpage.com/assets/images/logo-180x180.png?v=48842639
-    ICON: "{{lookup('file', 'searchmachines/startpage_icon')}}"
+    ICON: "{{lookup('file', 'searchengines/startpage_icon')}}"
     SHORTCUTURL: "s:"
-    POST_DATA: "{{lookup('file', 'searchmachines/startpage_postdata')}}"
+    POST_DATA: "{{lookup('file', 'searchengines/startpage_postdata')}}"
 
   - duckduckgo:
     NAME: Search DuckDuckGo — Privacy, simplified.
@@ -63,7 +63,7 @@ search_engine_list:
     NAME: searx
     HREF: https://suche.honigdachse.de/?q=%s
     ICON_URI: https://suche.honigdachse.de/static/themes/honigdachse/img/favicon.png
-    ICON: "{{lookup('file', 'searchmachines/searx_icon')}}"
+    ICON: "{{lookup('file', 'searchengines/searx_icon')}}"
     SHORTCUTURL: "sx:"
     POST_DATA: q%3D%25s&amp;category_general%3Don&amp;time_range%3D&amp;language%3Dde-DE
 
