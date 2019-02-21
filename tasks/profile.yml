@@ -1,0 +1,29 @@
+---
+- name: check wether profile already
+  find:
+    paths: "{{ firefox_path }}"
+    patterns: '*.{{ profile_name }}'
+    file_type: directory
+  register: profile
+
+- name: set old profile as path
+  set_fact:
+    profile_path: "{{ profile.files[0].path }}"
+  when: profile.matched > 0
+
+- name: create directory for config
+  command: "firefox -CreateProfile {{ profile_name }}"
+  when: profile.matched == 0
+
+- name: check new directory name
+  find:
+    paths: "{{ firefox_path }}"
+    patterns: '*.{{ profile_name }}'
+    file_type: directory
+  register: new_profile
+  when: profile.matched == 0
+
+- name: set new profile as path
+  set_fact:
+    profile_path: "{{ new_profile.files[0].path }}"
+  when: profile.matched == 0

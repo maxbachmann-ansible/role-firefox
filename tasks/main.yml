@@ -1,31 +1,9 @@
 ---
-- name: create directory for config
-  file:
-    state: directory
-    path: "{{ profile_path }}"
-    recurse: true
-
-- name: Check whether profiles.ini
-    stat:
-      path: "{{ firefox_path }}/profiles.ini"
-    register: stat_result
-
-- name: Set Apache URL
-  set_fact:
-    profile_name:: {{ lookup('Path', 'user section=Profile0 file={{ firefox_path }}/profiles.ini') }}
-  when: stat_result.stat.exists == True
-
-- name: copy profiles.ini
-  template:
-    src: templates/profiles.ini.j2
-    dest: "{{ firefox_path }}/profiles.ini"
-    owner: "{{ username }}"
-    group: "{{ username }}"
-    mode: 0644
-  when: stat_result.stat.exists == False
-
 - name: add packages
   include_tasks: "{{ ansible_distribution }}.yml"
+
+- name: create profile
+  import_tasks: profile.yml
 
 - name: add addons
   import_tasks: addons.yml

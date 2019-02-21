@@ -1,6 +1,5 @@
 ---
 firefox_path: "/home/{{ username }}/.mozilla/firefox"
-profile_path: "{{ firefox_path }}/{{ profile_name }}"
 addon_download: "https://addons.mozilla.org/firefox/downloads/latest/"
 
 fonts_list:
