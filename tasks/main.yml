@@ -4,7 +4,17 @@
     state: directory
     path: "{{ profile_path }}"
     recurse: true
-    
+
+- name: Check whether profiles.ini
+    stat:
+      path: "{{ firefox_path }}/profiles.ini"
+    register: stat_result
+
+- name: Set Apache URL
+  set_fact:
+    profile_name:: {{ lookup('Path', 'user section=Profile0 file={{ firefox_path }}/profiles.ini') }}
+  when: stat_result.stat.exists == True
+
 - name: copy profiles.ini
   template:
     src: templates/profiles.ini.j2
@@ -12,6 +22,7 @@
     owner: "{{ username }}"
     group: "{{ username }}"
     mode: 0644
+  when: stat_result.stat.exists == False
 
 - name: add packages
   include_tasks: "{{ ansible_distribution }}.yml"
