@@ -2,6 +2,7 @@
     "selectedFilterLists": [
 {% for filterlist in whitelistedDomains %}
         "{{ filterlist }}""{{ ',' if not loop.last }}"
+{% endfor %}
     ],
     "compiledMagic": 6,
     "selfieMagic": 6,

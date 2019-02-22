@@ -7,5 +7,6 @@
     "whitelistedDomains":{
 {% for domain in whitelistedDomains %}
         "{{ domain }}""{{ ',' if not loop.last }}"
+{% endfor %}
     }
 }

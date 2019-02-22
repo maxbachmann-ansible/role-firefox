@@ -107,6 +107,7 @@
     "userMatrix": [
 {% for rule in userMatrix %}
         "{{ rule }}""{{ ',' if not loop.last }}"
+{% endfor %}
     ],
     "alwaysDetachLogger": false,
     "autoUpdate": true,
