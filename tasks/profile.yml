@@ -12,18 +12,25 @@
   when: profile.matched > 0
 
 - name: create directory for config
-  command: "firefox -CreateProfile {{ profile_name }} --headless"
-  when: profile.matched == 0
-
-- name: check new directory name
-  find:
-    paths: "{{ firefox_path }}"
-    patterns: '*.{{ profile_name }}'
-    file_type: directory
-  register: new_profile
+  file:
+    path: "{{ firefox_path }}/{{ profile_hash }}.{{ profile_name }}"
+    state: directory
+    recurse: true
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: 0755
   when: profile.matched == 0
 
 - name: set new profile as path
   set_fact:
-    profile_path: "{{ new_profile.files[0].path }}"
+    profile_path: "{{ firefox_path }}/{{ profile_hash }}.{{ profile_name }}"
+  when: profile.matched == 0
+
+- name: create directory for config
+  template:
+    src: templates/profiles.ini.j2
+    dest: "{{ firefox_path }}/profiles.ini"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: 0644
   when: profile.matched == 0

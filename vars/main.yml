@@ -1,4 +1,5 @@
 ---
+profile_hash: "{{ ansible_date_time.epoch | hash('sha1') }}"
 root_path: "/root/.mozilla/firefox"
 home_path: "/home/{{ username }}/.mozilla/firefox"
 firefox_path: "{{ root_path if username == 'root' else home_path }}"

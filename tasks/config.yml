@@ -3,6 +3,8 @@
   get_url:
     url: "https://raw.githubusercontent.com/ghacksuserjs/ghacks-user.js/master/updater.sh"
     dest: "{{ profile_path }}/updater.sh"
+    owner: "{{ username }}"
+    group: "{{ username }}"
     mode: 0770
   retries: 5
   delay: 2

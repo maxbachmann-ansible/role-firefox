@@ -4,12 +4,18 @@
   file:
     state: directory
     path: "/usr/share/fonts/ansible-fonts"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: 0755
 
 - name: download fonts
   become: true
   get_url:
     url: "{{ item }}"
     dest: "/usr/share/fonts/ansible-fonts"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: 0644
   with_items: "{{ fonts_list }}"
   retries: 5
   delay: 2
@@ -32,7 +38,6 @@
   apt:
     name: fonts-font-awesome
     state: present
-    update_cache: true
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
   retries: 5
   delay: 2
@@ -45,7 +50,6 @@
   yum:
     name: fontawesome-fonts
     state: present
-    update_cache: true
   when: ansible_distribution == 'CentOS' or ansible_distribution == 'RedHat'
   retries: 5
   delay: 2
@@ -57,7 +61,6 @@
   dnf:
     name: fontawesome-fonts
     state: present
-    update_cache: true
   when: ansible_distribution == 'Fedora'
   retries: 5
   delay: 2
@@ -69,7 +72,6 @@
   pacman:
     name: otf-font-awesome
     state: present
-    update_cache: true
   when: ansible_distribution == 'Archlinux'
   retries: 5
   delay: 2
