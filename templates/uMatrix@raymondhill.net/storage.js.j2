@@ -105,7 +105,7 @@
         }]
     ],
     "userMatrix": [
-{% for rule in userMatrix %}
+{% for rule in umatrix.userMatrix %}
         "{{ rule }}""{{ ',' if not loop.last }}"
 {% endfor %}
     ],
@@ -117,7 +117,7 @@
     "collapseBlacklisted": true,
     "collapseBlocked": false,
     "colorBlindFriendly": false,
-    "deleteCookies": "{{ deleteCookies }}",
+    "deleteCookies": "{{ umatrix.deleteCookies }}",
     "deleteUnusedSessionCookies": false,
     "deleteUnusedSessionCookiesAfter": 60,
     "deleteLocalStorage": false,

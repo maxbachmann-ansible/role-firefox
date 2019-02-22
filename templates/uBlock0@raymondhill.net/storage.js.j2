@@ -1,6 +1,6 @@
 {
     "selectedFilterLists": [
-{% for filterlist in whitelistedDomains %}
+{% for filterlist in ublock-origin.selectedFilterLists %}
         "{{ filterlist }}""{{ ',' if not loop.last }}"
 {% endfor %}
     ],
