@@ -39,11 +39,11 @@
 - name: Copy config
   template:
     src: "templates/{{ item.directory }}/storage.js.j2"
-    dest: "{{ profile_path }}/browser-extension-data/{{ item.directory }}/storage.js.j2"
+    dest: "{{ profile_path }}/browser-extension-data/{{ item.directory }}/storage.js"
     owner: "{{ username }}"
     group: "{{ username }}"
     mode: 0644
   when: filename is string
   vars:
-    filename: "{{ lookup('first_found', dict(files=['files/' + item.directory + '/storage.js'], skip=true)) }}"
+    filename: "{{ lookup('first_found', dict(files=['templates/' + item.directory + '/storage.js'], skip=true)) }}"
   with_items: "{{ addon_list }}"
