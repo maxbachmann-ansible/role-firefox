@@ -39,7 +39,7 @@
 - name: Copy config
   template:
     src: "templates/{{ item.directory }}/storage.js.j2"
-    dest: "{{ profile_path }}/browser-extension-data/{{ item.directory }}/storage.js"
+    dest: "{{ profile_path }}/browser-extension-data/{{ item.directory }}/storage.js.j2"
     owner: "{{ username }}"
     group: "{{ username }}"
     mode: 0644
