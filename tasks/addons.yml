@@ -6,7 +6,7 @@
     recurse: true
     owner: "{{ username }}"
     group: "{{ username }}"
-    mode: 0644
+    mode: 0755
   with_items:
     - "{{ profile_path }}/extensions"
     - "{{ profile_path }}/browser-extension-data"
@@ -30,7 +30,7 @@
     path: "{{ profile_path }}/browser-extension-data/{{ item.directory }}"
     owner: "{{ username }}"
     group: "{{ username }}"
-    mode: 0644
+    mode: 0755
   when: filename is string
   vars:
     filename: "{{ lookup('first_found', dict(files=[item.directory], paths=['templates'], skip=true)) }}"

@@ -18,7 +18,7 @@
     recurse: true
     owner: "{{ username }}"
     group: "{{ username }}"
-    mode: 0644
+    mode: 0755
   when: profile.matched == 0
 
 - name: set new profile as path

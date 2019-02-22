@@ -6,7 +6,7 @@
     path: "/usr/share/fonts/ansible-fonts"
     owner: "{{ username }}"
     group: "{{ username }}"
-    mode: 0644
+    mode: 0755
 
 - name: download fonts
   become: true
