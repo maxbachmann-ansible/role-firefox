@@ -1,8 +1,9 @@
 ---
-- name: include config for 
+- name: include config for variables
   include_vars:
     dir: vars/addons
-    extensions: yml
+    extensions:
+      - yml
 
 - name: define fonts_list_extra
   set_fact:
