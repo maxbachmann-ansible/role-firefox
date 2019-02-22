@@ -28,7 +28,7 @@
 
 - name: create directory for config
   template:
-    src: templates/profiles.ini
+    src: templates/profiles.ini.j2
     dest: "{{ firefox_path }}/profiles.ini"
     owner: "{{ username }}"
     group: "{{ username }}"
