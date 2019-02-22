@@ -106,7 +106,7 @@
     ],
     "userMatrix": [
 {% for rule in umatrix.userMatrix %}
-        {{ rule }}{{ ',' if not loop.last }}
+        {{ rule }}{% if not loop.last %},{% endif %}
 {% endfor %}
     ],
     "alwaysDetachLogger": false,

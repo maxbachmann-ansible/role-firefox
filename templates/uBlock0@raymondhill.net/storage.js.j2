@@ -1,7 +1,7 @@
 {
     "selectedFilterLists": [
 {% for filterlist in ublockorigin.selectedFilterLists %}
-        {{ filterlist }}{{ ',' if not loop.last }}
+        {{ filterlist }}{% if not loop.last %},{% endif %}
 {% endfor %}
     ],
     "compiledMagic": 6,

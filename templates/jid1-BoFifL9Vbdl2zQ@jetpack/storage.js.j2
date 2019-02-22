@@ -1,12 +1,12 @@
 {
     "xhrTestDomain":"decentraleyes.org",
-    "showIconBadge":"{{ decentraleyes.showIconBadge }}",
-    "blockMissing":"{{ decentraleyes.blockMissing }}",
-    "disablePrefetch":"{{ decentraleyes.disablePrefetch }}",
-    "stripMetadata":"{{ decentraleyes.stripMetadata }}",
+    "showIconBadge":{{ decentraleyes.showIconBadge }},
+    "blockMissing":{{ decentraleyes.blockMissing }},
+    "disablePrefetch":{{ decentraleyes.disablePrefetch }},
+    "stripMetadata":{{ decentraleyes.stripMetadata }},
     "whitelistedDomains":{
 {% for domain in decentraleyes.whitelistedDomains %}
-        "{{ domain }}""{{ ',' if not loop.last }}"
+        {{ domain }}{% if not loop.last %},{% endif %}
 {% endfor %}
     }
 }
