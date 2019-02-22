@@ -3,7 +3,6 @@
   file:
     state: directory
     path: "{{ item }}"
-    recurse: true
     owner: "{{ username }}"
     group: "{{ username }}"
     mode: 0755
