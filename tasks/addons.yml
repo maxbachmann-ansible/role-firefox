@@ -4,6 +4,9 @@
     state: directory
     path: "{{ item }}"
     recurse: true
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: 0644
   with_items:
     - "{{ profile_path }}/extensions"
     - "{{ profile_path }}/browser-extension-data"
@@ -12,6 +15,9 @@
   get_url:
     url: "{{ addon_download }}/{{ item.name }}/addon-{{ item.name }}-latest.xpi"
     dest: "{{ profile_path }}/extensions/{{ item.directory }}.xpi"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: 0644
   with_items: "{{ addon_list }}"
   retries: 5
   delay: 2
@@ -22,6 +28,9 @@
   file:
     state: directory
     path: "{{ profile_path }}/browser-extension-data/{{ item.directory }}"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: 0644
   when: filename is string
   vars:
     filename: "{{ lookup('first_found', dict(files=[item.directory], paths=['templates'], skip=true)) }}"

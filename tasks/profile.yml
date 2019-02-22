@@ -16,6 +16,9 @@
     path: "{{ firefox_path }}/{{ profile_hash }}.{{ profile_name }}"
     state: directory
     recurse: true
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: 0644
   when: profile.matched == 0
 
 - name: set new profile as path
@@ -27,4 +30,7 @@
   template:
     src: templates/profiles.ini
     dest: "{{ firefox_path }}/profiles.ini"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: 0644
   when: profile.matched == 0
