@@ -45,5 +45,5 @@
     mode: 0644
   when: filename is string
   vars:
-    filename: "{{ lookup('first_found', dict(files=['templates/' + item.directory + '/storage.js'], skip=true)) }}"
+    filename: "{{ lookup('first_found', dict(files=['templates/' + item.directory + '/storage.js.j2'], skip=true)) }}"
   with_items: "{{ addon_list }}"
