@@ -1,9 +1,73 @@
 ---
-username: "{{ ansible_user_id }}"
-profile_name: "ansible"
+root_path: "/root/.mozilla/firefox"
+home_path: "/home/{{ username }}/.mozilla/firefox"
+firefox_path: "{{ root_path if username == 'root' else home_path }}"
+addon_download: "https://addons.mozilla.org/firefox/downloads/latest/"
 
-search_engines:
-  - startpage
-  - qwant
-  - invidious
-  - searx
+fonts_list:
+  - https://github.com/FortAwesome/Font-Awesome/raw/master/otfs/Font%20Awesome%205%20Brands-Regular-400.otf
+  - https://github.com/FortAwesome/Font-Awesome/raw/master/otfs/Font%20Awesome%205%20Free-Regular-400.otf
+  - https://github.com/FortAwesome/Font-Awesome/raw/master/otfs/Font%20Awesome%205%20Free-Solid-900.otf
+
+addon_list:
+  - name: ublock-origin
+    directory: "uBlock0@raymondhill.net"
+
+  - name: umatrix
+    directory: "uMatrix@raymondhill.net"
+
+  - name: decentraleyes
+    directory: "jid1-BoFifL9Vbdl2zQ@jetpack"
+
+  - name: first-party-isolation
+    directory: "{33c93ccc-ceed-47d2-9645-805ea58c8a07}"
+
+  - name: neat-url
+    directory: "neaturl@hugsmile.eu"
+
+  - name: skip-redirect
+    directory: "skipredirect@sblask"
+
+  - name: temporary-containers
+    directory: "{c607c8df-14a7-4f28-894f-29e8722976af}"
+
+  - name: multi-account-containers
+    directory: "@testpilot-containers"
+
+search_engine_list:
+  - google:
+    NAME: Search Google
+    HREF: https://www.google.com/search?q=%s
+    SHORTCUTURL: "g:"
+
+  - startpage:
+    NAME: startpage websearch
+    HREF: https://www.startpage.com/do/search/?q=%s
+    ICON_URI: https://www.startpage.com/assets/images/logo-180x180.png?v=48842639
+    ICON: "{{lookup('file', 'searchengines/startpage_icon')}}"
+    SHORTCUTURL: "s:"
+    POST_DATA: "{{lookup('file', 'searchengines/startpage_postdata')}}"
+
+  - duckduckgo:
+    NAME: Search DuckDuckGo — Privacy, simplified.
+    HREF: https://duckduckgo.com/?q=%s
+    SHORTCUTURL: "ddg:"
+    POST_DATA: q%3D%25s
+
+  - qwant:
+    NAME: Quant search
+    HREF: https://lite.qwant.com/?q=%s
+    SHORTCUTURL: "q:"
+
+  - searx:
+    NAME: searx
+    HREF: https://suche.honigdachse.de/?q=%s
+    ICON_URI: https://suche.honigdachse.de/static/themes/honigdachse/img/favicon.png
+    ICON: "{{lookup('file', 'searchengines/searx_icon')}}"
+    SHORTCUTURL: "sx:"
+    POST_DATA: q%3D%25s&amp;category_general%3Don&amp;time_range%3D&amp;language%3Dde-DE
+
+  - invidious:
+    NAME: Search Invidious
+    HREF: https://invidio.us/search?q=%s
+    SHORTCUTURL: "yt:"
