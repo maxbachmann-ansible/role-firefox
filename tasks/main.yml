@@ -2,6 +2,9 @@
 - name: add packages
   include_tasks: "{{ ansible_distribution }}.yml"
 
+- name: prepare system
+  include_tasks: system-ini.yml
+
 - name: create profile
   import_tasks: profile.yml
 

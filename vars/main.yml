@@ -71,3 +71,6 @@ search_engine_list:
     NAME: Search Invidious
     HREF: https://invidio.us/search?q=%s
     SHORTCUTURL: "yt:"
+
+profile_name: "ansible"
+

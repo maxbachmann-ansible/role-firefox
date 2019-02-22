@@ -1,6 +1,5 @@
 ---
 username: "{{ ansible_user_id }}"
-profile_name: "ansible"
 
 search_engines:
   - startpage

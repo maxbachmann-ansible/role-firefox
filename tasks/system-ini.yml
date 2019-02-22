@@ -1,0 +1,33 @@
+---
+
+- name: create .mozilla directory, if needed
+  file:
+    path: "/home/{{ username }}/.mozilla"
+    state: directory
+    mode: 0755
+  when: not username == "root"
+
+- name: create firefox directory, if needed
+  file:
+    path: "/home/{{ username }}/.mozilla/firefox"
+    state: directory
+    mode: 0755
+  when: not username == "root"
+
+- name: create /root/.mozilla directory, if needed
+  file:
+    path: "/root/.mozilla"
+    state: directory
+    mode: 0755
+  when: username == "root"
+
+- name: create /root/.mozilla/firefox directory, if needed
+  file:
+    path: "/root/.mozilla/firefox"
+    state: directory
+    mode: 0755
+  when: username == "root"
+
+
+
+    
