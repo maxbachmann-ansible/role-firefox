@@ -1,4 +1,11 @@
 ---
+- name: Output config information
+  debug:
+    msg: 
+     - "Username: {{ username }}"
+     - "Firefox Path: {{ firefox_path }}"
+     - "Profile Name: {{ profile_name }}"
+
 - name: check wether profile already
   find:
     paths: "{{ firefox_path }}"
@@ -9,7 +16,7 @@
 - name: set old profile as path
   set_fact:
     profile_path: "{{ profile.files[0].path }}"
-  when: profile.matched > 0
+  when: profile.matched
 
 - name: create directory for config
   file:
@@ -19,12 +26,12 @@
     owner: "{{ username }}"
     group: "{{ username }}"
     mode: 0755
-  when: profile.matched == 0
+  when: not profile.matched
 
 - name: set new profile as path
   set_fact:
     profile_path: "{{ firefox_path }}/{{ profile_hash }}.{{ profile_name }}"
-  when: profile.matched == 0
+  when: not profile.matched
 
 - name: create directory for config
   template:
@@ -33,4 +40,4 @@
     owner: "{{ username }}"
     group: "{{ username }}"
     mode: 0644
-  when: profile.matched == 0
+  when: not profile.matched

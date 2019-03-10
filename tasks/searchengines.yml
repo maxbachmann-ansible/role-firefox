@@ -6,13 +6,4 @@
     owner: "{{ username }}"
     group: "{{ username }}"
     mode: 0644
-  register: searchengine_added
-
-- name: remove old search engines
-  file:
-    path: "{{ item }}"
-    state: absent
-  with_items:
-    - "{{ profile_path }}/places.sqlite"
-    - "{{ profile_path }}/bookmarkbackups/*.jsonlz4"
-  when: searchengine_added.changed
+  notify: remove old searchengines
