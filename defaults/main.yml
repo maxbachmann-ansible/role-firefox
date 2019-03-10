@@ -2,11 +2,11 @@
 username: "{{ ansible_user_id }}"
 profile_name: "ansible"
 
-additional_fonts_list: []
+fonts_list_extra: []
 
-additional_addon_list: []
+addon_list_extra: []
 
-additional_search_engine_list: []
+search_engine_list_extra: []
 
 search_engines:
   - startpage

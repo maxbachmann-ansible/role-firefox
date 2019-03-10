@@ -28,60 +28,8 @@ ansible-galaxy install maxbachmann.firefox
 ```
 This will install the firefox role into your roles directory.
 
-## Role Variables
-Avaible variables are listed below, along with default values (see `defaults/main.yml`):
-
-```yaml
-firefox_path: "/home/{{ ansible_user_id }}/.mozilla/firefox"
-profile_name: "ansibleProfile.default"
-profile_path: "{{ firefox_path }}/{{ profile_name }}"
-```
-The locations to place all the files needed for firefox.
-
-```yaml
-addon_download: "https://addons.mozilla.org/firefox/downloads/file"
-```
-The firefox downloads website for addons.
-
-```yaml
-search_engine_list:
-  - startpage:
-    NAME: startpage websearch
-    HREF: https://www.startpage.com/do/search/?q=%s
-    ICON_URI: https://www.startpage.com/assets/images/logo-180x180.png?v=48842639
-    ICON: "{{lookup('file', 'searchmachines/startpage_icon')}}"
-    SHORTCUTURL: "s:"
-    POST_DATA: "{{lookup('file', 'searchmachines/startpage_postdata')}}"
-```
-A list of search engine dicts, that include all possible parameters for keywords.
-
-```yaml
-search_engines:
-  - startpage
-```
-A list of the search engines that get added to the browser during the installation. They can later be called using the `SHORTCUTURL` in the Url-Bar. Check [search engines](#search-engines) for more informations on the avaible search engines.
-
-## Search Engines
-The script gives the possibility to choose between the following search engines.
-
-| keyword | searchengine                                           |
-|---------|--------------------------------------------------------|
-| g:      | [google](https://www.google.com/search?q=%s)           |
-| ddg:    | [duckduckgo](https://duckduckgo.com/?q=%s)             |
-| s:      | [startpage](https://www.startpage.com/do/search/?q=%s) |
-| sx:     | [searx](https://suche.honigdachse.de/?q=%s)            |
-| q:      | [qwant](https://lite.qwant.com/?q=%s)                  |
-| yt:     | [invidious](https://invidio.us/search?q=%s)           |
-
-1) Google is includes but definetly not recommended for privacy reasons.
-2) DuckDuckgo is not optimal either since it´s located in the US and uses Amazon AWS.
-3) Startpage anonymously serves google results.
-4) suche.honigdachse is a instance of searx. Searx is a search engine, that can be self hosted to serve results from multiple search engines.
-5) Qwant is a french search engine with a own search index.
-6) Invidious anonymously serves youtube results.
-
-The search engines can be used by typing the keyword into the URL-Bar of Firefox
-![keywords](https://raw.githubusercontent.com/maxbachmann/role-firefox/master/common/images/keyword.png)
+## Further Information
+further Informations on the role variables and the config decisions can be found in the [wiki](https://github.com/maxbachmann-ansible/role-firefox/wiki)
 
 ## Dependencies
 None.
