@@ -4,3 +4,11 @@
 
 - name: install fonts
   command: 'fc-cache -f -v'
+
+- name: remove old searchengines
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - "{{ profile_path }}/places.sqlite"
+    - "{{ profile_path }}/bookmarkbackups/*.jsonlz4"
