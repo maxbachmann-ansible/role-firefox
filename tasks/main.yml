@@ -1,4 +1,10 @@
 ---
+- name: Include all var files
+  include_vars:
+    dir: vars
+    extensions:
+      - yml
+
 - name: combine variables
   import_tasks: variables.yml
 

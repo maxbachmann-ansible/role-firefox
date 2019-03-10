@@ -1,0 +1,47 @@
+---
+# The Settings are ordered into the sections you can find in Ublock
+# They have the same order aswell
+# When you miss settings feel free to open an issue
+ublock_origin:
+  # Settings
+  showIconBadge: true
+  collapseBlocked: true
+  contextMenuEnabled: true
+  tooltipsDisabled: false
+  colorBlindFriendly: false
+  cloudStorageEnabled: false
+  advancedUserEnabled: true
+  # PRIVACY
+  prefetchingDisabled: true
+  hyperlinkAuditingDisabled: true
+  webrtcIPAddressHidden: true
+  # Filter lists
+  autoUpdate: true
+  parseAllABPHideFilters: true
+  ignoreGenericCosmeticFilters: false
+  selectedFilterlists:
+    - "DEU-0"
+    - "plowe-0"
+    - "fanboy-social"
+    - "fanboy-annoyance"
+    - "fanboy-cookiemonster"
+    - "fanboy-thirdparty_social"
+    - "adguard-annoyance"
+    - "malware-1"
+    - "malware-0"
+    - "fanboy-enhanced"
+    - "easyprivacy"
+    - "adguard-spyware"
+    - "easylist"
+    - "adguard-mobile"
+    - "adguard-generic"
+    - "awrl-0"
+    - "ublock-unbreak"
+    - "ublock-abuse"
+    - "ublock-privacy"
+    - "ublock-badware"
+    - "ublock-filters"
+    - "user-filters"
+    - "adguard-social"
+    - "spam404-0"
+    - "disconnect-malvertising"
