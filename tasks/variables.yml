@@ -1,4 +1,10 @@
 ---
+- name: Include all var files
+  include_vars:
+    dir: vars
+    extensions:
+      - yml
+
 - name: define fonts_list_extra
   set_fact:
     fonts_list: "{{ fonts_list | list + fonts_list_extra | list }}"
