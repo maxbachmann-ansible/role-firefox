@@ -108,6 +108,13 @@
 {% for rule in umatrix.userMatrix %}
         "{{ rule }}"{{ ',' if not loop.last else '' }}
 {% endfor %}
+{% if search_engines is defined %}
+{% for selected_searchengine in search_engines %}
+{% if selected_searchengine == 'google' %}
+        , "google.com www.google.com script allow"
+{% endif %}
+{% endfor %}
+{% endif %}
     ],
     "alwaysDetachLogger": false,
     "autoUpdate": true,
