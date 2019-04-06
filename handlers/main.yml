@@ -1,6 +1,6 @@
 ---
 - name: update config
-  command: '"{{ profile_path }}/updater.sh" -u -s'
+  command: 'sudo -E -u "{{ username }}" "{{ profile_path }}/updater.sh" -u -s'
 
 - name: install fonts
   command: 'fc-cache -f -v'
